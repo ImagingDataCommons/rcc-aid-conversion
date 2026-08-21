@@ -71,13 +71,27 @@ python -m rcc_aid.build_case_index          # -> qc/case_index.csv
 python -m rcc_aid.fetch_dicom --dry-run     # report download size before committing to it
 python -m rcc_aid.fetch_dicom               # 8.27 GB of CT from IDC -> data/dicom/<SeriesInstanceUID>/
 python -m rcc_aid.resolve_references        # -> qc/reference_resolution.csv, data/refs/*.txt
+python -m rcc_aid.normalize_labels          # -> data/labels_norm/*.nrrd, qc/normalization_report.csv
 python -m rcc_aid.make_metadata             # -> data/meta/*.json
 python -m rcc_aid.convert                   # -> data/seg_labelmap/*.dcm, data/seg_binary/*.dcm
 python -m rcc_aid.qc                        # -> qc/qc_report.csv
 ```
 
-`scripts/run_all.sh` chains these, and `--cases <case_id> ...` restricts the later steps to a pilot
-subset.
+`scripts/run_all.sh` chains these. `--cases <case_id> ...` restricts the per-case steps to a pilot
+subset, and `--jobs N` (or `RCC_JOBS=N`) sets how many dcmqi processes run at once — `convert` and `qc`
+default to the physical core count.
+
+`normalize_labels` is not cosmetic: 13 of the 129 published label maps must be repaired before they
+describe the DICOM correctly ([ADR-011](docs/decisions.md)).
+
+To review the output as files rather than in a viewer:
+
+```bash
+python scripts/export_review_tree.py --out review/pilot --cases <case_id> ...
+```
+
+which lays the objects out as `PatientID / Modality / SeriesName`, with the original published NIfTI
+and the normalized NRRD alongside for comparison.
 
 `images.zip` (4.1 GB) is deliberately **not** downloaded — it holds NIfTI copies of imaging that IDC
 already serves as DICOM ([ADR-002](docs/decisions.md)).

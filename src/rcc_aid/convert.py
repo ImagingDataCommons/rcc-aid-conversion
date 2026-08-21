@@ -180,10 +180,29 @@ def main() -> int:
         return 1
 
     work = [(c, f) for c in cases for f in args.flavours]
+    preexisting: list[dict] = []
     if args.skip_existing:
-        before = len(work)
-        work = [(c, f) for c, f in work if not (OUT_DIRS[f] / f"{c}.dcm").exists()]
-        print(f"resuming: {before - len(work)} output(s) already present, {len(work)} to do")
+        todo = []
+        for c, f in work:
+            out = OUT_DIRS[f] / f"{c}.dcm"
+            if out.exists():
+                # Record a row anyway: a report that silently omits objects present on disk reads as
+                # a smaller run rather than a resumed one.
+                refs = REFS_DIR / f"{c}.txt"
+                n_ref = len([ln for ln in refs.read_text().splitlines() if ln.strip()]) \
+                    if refs.exists() else 0
+                preexisting.append({
+                    "case_id": c, "flavour": f, "status": "ok", "returncode": 0,
+                    "n_reference_instances": n_ref,
+                    "output": str(out.relative_to(ROOT)), "output_bytes": out.stat().st_size,
+                    "compress": COMPRESS[f], "skip_empty": SKIP_EMPTY[f],
+                    "seconds": float("nan"), "log": "",
+                    "detail": "pre-existing output, not reconverted this run",
+                })
+            else:
+                todo.append((c, f))
+        print(f"resuming: {len(preexisting)} output(s) already present, {len(todo)} to do")
+        work = todo
 
     print(f"converting {len(cases)} case(s) x {len(args.flavours)} flavour(s) "
           f"= {len(work)} object(s), {args.jobs} job(s) in parallel")
@@ -202,7 +221,7 @@ def main() -> int:
             print(f"  [{done}/{len(work)}] {mark} {r['flavour']:8s} {r['case_id']}"
                   + ("" if r["status"] == "ok" else f"  <- {r['detail']}"), flush=True)
 
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(rows + preexisting)
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     # Always preserve results for (case, flavour) pairs this run did not touch -- runs can be
     # partial via --cases, --flavours or --skip-existing.

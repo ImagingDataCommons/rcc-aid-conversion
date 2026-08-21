@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -41,6 +42,8 @@ import numpy as np
 import pandas as pd
 import pydicom
 import SimpleITK as sitk
+
+from pydicom.uid import DeflatedExplicitVRLittleEndian as DEFLATED_EVRLE
 
 from .terminology import SEGMENTS
 
@@ -68,6 +71,64 @@ ALGORITHM_NAME = "Robust Kidney Abnormality Segmentation"
 # dcmqi >=1.5.5 inserts this segment itself for labelmap output; it is not one of ours.
 # (125040, DCM, "Background") is a standard code from CID 7165 Abstract Segmentation Type.
 BACKGROUND_SEGMENT = (0, "125040")
+
+# dciodvfy (David Clunie's dicom3tools) checks IOD conformance. Optional -- absent on many systems.
+DCIODVFY = shutil.which("dciodvfy") or str(Path.home() / "bin" / "dciodvfy")
+
+# dciodvfy findings that are benign for this dataset, and why. Anything else is surfaced.
+DCIODVFY_EXPECTED = (
+    # PatientName/ContentCreatorName are single-component PNs, which is legal but "retired form".
+    "Retired Person Name form",
+    # TCGA imaging carries no patient size/weight; the source CT has them as zero.
+    "Value is zero for value 1 of attribute <Patient's Size>",
+    "Value is zero for value 1 of attribute <Patient's Weight>",
+    # StudyID is absent in the source TCGA CT, so it is absent here too.
+    "needed to build DICOMDIR",
+    # LABELMAP only. PatientOrientation (0020,0020) is Type 2C in General Image, conditional on the
+    # image not being in a Frame of Reference -- ours is, and it references the source CT with
+    # per-frame Plane Position. It is absent from our BINARY objects too, yet dciodvfy flags it only
+    # for LABELMAP, which points at its Segmentation IOD model predating the LABELMAP supplement
+    # (it cannot read Deflated transfer syntax either). Recorded, not treated as a defect.
+    "Element=<PatientOrientation> Module=<GeneralImage>",
+)
+
+
+def run_dciodvfy(seg_path: Path, flavour: str) -> dict:
+    """IOD conformance check. Deflated objects are transcoded first -- dciodvfy cannot read them."""
+    if not Path(DCIODVFY).is_file():
+        return {"dciodvfy": "unavailable"}
+
+    target = seg_path
+    tmpdir = None
+    try:
+        ds = pydicom.dcmread(str(seg_path))
+        if ds.file_meta.TransferSyntaxUID == DEFLATED_EVRLE:
+            from pydicom.uid import ExplicitVRLittleEndian
+
+            tmpdir = tempfile.TemporaryDirectory()
+            target = Path(tmpdir.name) / seg_path.name
+            ds.file_meta.TransferSyntaxUID = ExplicitVRLittleEndian
+            ds.save_as(str(target), enforce_file_format=True)
+
+        proc = subprocess.run([DCIODVFY, str(target)], capture_output=True, text=True)
+        lines = [ln.strip() for ln in (proc.stdout + proc.stderr).splitlines() if ln.strip()]
+        errors = [ln for ln in lines if ln.lower().startswith("error")]
+        warnings = [ln for ln in lines if ln.lower().startswith("warning")]
+        unexpected = [ln for ln in errors + warnings
+                      if not any(exp in ln for exp in DCIODVFY_EXPECTED)]
+        return {
+            "dciodvfy": "clean" if not unexpected else "findings",
+            "dciodvfy_transcoded": target is not seg_path,
+            "dciodvfy_n_errors": len(errors),
+            "dciodvfy_n_warnings": len(warnings),
+            "dciodvfy_iod_recognized": any(ln == "Segmentation" for ln in lines),
+            "dciodvfy_unexpected": " ; ".join(unexpected)[:600],
+        }
+    except Exception as e:  # noqa: BLE001
+        return {"dciodvfy": f"failed: {type(e).__name__}: {e}"}
+    finally:
+        if tmpdir is not None:
+            tmpdir.cleanup()
 
 
 def decode(seg_path: Path) -> tuple[np.ndarray, sitk.Image]:
@@ -266,6 +327,13 @@ def check_case(case_id: str, row: pd.Series) -> dict:
             rec.update({f"{flavour}_{k}": v for k, v in facts.items()})
         except Exception as e:  # noqa: BLE001
             problems.append(f"{flavour}: header check failed: {e}")
+
+        dv = run_dciodvfy(seg_path, flavour)
+        rec.update({f"{flavour}_{k}": v for k, v in dv.items()})
+        if dv.get("dciodvfy") == "findings":
+            problems.append(f"{flavour}: dciodvfy: {dv['dciodvfy_unexpected']}")
+        elif str(dv.get("dciodvfy", "")).startswith("failed"):
+            problems.append(f"{flavour}: {dv['dciodvfy']}")
     if len(embedded) == 2:
         same = np.array_equal(embedded["labelmap"], embedded["binary"])
         rec["labelmap_eq_binary"] = "yes" if same else "NO"

@@ -124,6 +124,45 @@ smaller than BINARY with empty frames skipped:
 | `KIRC_…118168941853469915520207083596_acq_unknown` (133) | 54 KB | 1,673 KB | 31× |
 | `KIRC_…311537942010300349465300481227_acq_3` (90) | 37 KB | 905 KB | 25× |
 
+### Deflate is not optional for LABELMAP
+
+Transcoding the 251-slice case out of deflate makes the point sharply:
+
+| Same object, same content | Bytes |
+|---|--:|
+| LABELMAP, Deflated Explicit VR LE | 128,982 |
+| LABELMAP, Explicit VR LE (uncompressed) | 65,970,302 |
+| BINARY, Explicit VR LE, empty frames skipped | 6,751,758 |
+
+That is a **511× compression ratio**, and an uncompressed LABELMAP would be **10× larger than the
+BINARY equivalent** — 66 MB per case, roughly 8.5 GB across the dataset, for objects that are 129 KB
+deflated. LABELMAP's 8-bits-per-voxel-per-frame encoding only pays off once the uniform background is
+compressed away. This is the empirical basis for [ADR-010](decisions.md).
+
+## DICOM conformance
+
+Validated with `dciodvfy` (dicom3tools). Both flavours are recognised as the `Segmentation` IOD and
+both are clean apart from findings that are benign for this dataset and allowlisted with reasons in
+`qc.py` (`DCIODVFY_EXPECTED`): retired single-component Person Name form for `PatientName` and
+`ContentCreatorName`; zero `PatientSize`/`PatientWeight` and absent `StudyID`, all inherited from the
+source TCGA CT.
+
+Two LABELMAP-specific observations, both pointing at tooling rather than at the data:
+
+**`dciodvfy` cannot read the Deflated transfer syntax.** Pointed at a deflated object it reports
+`Implicit VR encoding even though supposed to be explicit` and `Dicom dataset read failed` — it is
+parsing the compressed bytes as though they were a raw dataset. `qc.py` therefore transcodes deflated
+objects to Explicit VR Little Endian in a temporary file before validating. Worth knowing as an
+interoperability caveat for deflate generally.
+
+**`PatientOrientation` is flagged for LABELMAP but not BINARY.** After transcoding, the only error is
+`Missing attribute Type 2C Conditional Element=<PatientOrientation> Module=<GeneralImage>`. The
+attribute is absent from **both** flavours, yet only LABELMAP is flagged. `PatientOrientation`
+(0020,0020) is Type 2C in General Image, conditional on the image not being part of a Frame of
+Reference — and ours is, referencing the source CT series with per-frame Plane Position. Combined with
+the deflate gap, this suggests `dciodvfy`'s Segmentation IOD model predates the LABELMAP supplement. We
+record it rather than treating it as a defect, and have not concluded which side is at fault.
+
 ## Quality control
 
 `qc/qc_report.csv`, one row per case. Every case must satisfy all of:
@@ -136,6 +175,58 @@ smaller than BINARY with empty frames skipped:
   `Robust Kidney Abnormality Segmentation` on every declared segment;
 - `PatientID` and `StudyInstanceUID` match the source, `ReferencedSeriesSequence` is exactly the source
   series, and every referenced instance is in the resolved reference list.
+
+## Viewer verification
+
+The three pilot cases were loaded into a Google Healthcare DICOM store to check them in a real DICOM
+viewer, rather than only through `segimage2itkimage`.
+
+**Store**
+
+```
+projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot
+```
+
+DICOMweb endpoint:
+`https://healthcare.googleapis.com/v1/<store path above>/dicomWeb`
+
+**How it was loaded.** Objects were staged to `gs://af-dev-storage/rcc-aid-pilot/` and imported with
+`gcloud healthcare dicom-stores import gcs`, which reported **565/565 succeeded** (559 source CT
+instances plus the 6 SEG objects). The staging prefix was deleted afterwards. The CT series were then
+removed from the store with DICOMweb `DELETE` on each series, leaving the 6 SEG series only — see the
+caveat below.
+
+**Viewer URLs.** Pattern:
+
+```
+https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=<StudyInstanceUID>&gcp=<store path>
+```
+
+| Patient | Case | What it exercises | StudyInstanceUID |
+|---|---|---|---|
+| TCGA-DV-5567 | `KIRC_…311537942010300349465300481227_acq_3` | irregular multi-acquisition series **and** z-flip | `1.3.6.1.4.1.14519.5.2.1.1357.4004.259839416696453949057995272918` |
+| TCGA-DV-5568 | `KIRC_…118168941853469915520207083596_acq_unknown` | missing `AcquisitionNumber`, all three segments | `1.3.6.1.4.1.14519.5.2.1.1357.4004.239194542022979982905743234780` |
+| TCGA-KM-8440 | `KICH_…107096179260147523759389579292_acq_11` | clean regular series, all three segments | `1.3.6.1.4.1.14519.5.2.1.1357.4011.258217882991704941618731006997` |
+
+Full URLs:
+
+- TCGA-DV-5567 — <https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.1357.4004.259839416696453949057995272918&gcp=projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot>
+- TCGA-DV-5568 — <https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.1357.4004.239194542022979982905743234780&gcp=projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot>
+- TCGA-KM-8440 — <https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.1357.4011.258217882991704941618731006997&gcp=projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot>
+
+Each study carries both flavours, distinguishable by `SeriesNumber` — 300 is LABELMAP, 301 is BINARY
+and also carries a `[BINARY]` suffix in `SeriesDescription` — so the two can be compared on the same
+images.
+
+**Caveat: the CT was removed from this store.** The SEG objects reference CT SOP Instances that are no
+longer present, so a viewer resolving referenced images from the same store will not composite the
+overlay. `ReferencedSeriesSequence` points at the real TCGA series in IDC, so this is a property of
+this particular review store, not of the objects. Re-import the referenced instances (90, 133 and 251
+respectively) if the URLs need to render.
+
+**Outcome.** Both flavours load and are listed correctly, with `SeriesDescription`, `SeriesNumber` and
+`PatientID` as intended. One difference was observed and is recorded under Known limitations below:
+the two flavours render in different colors despite encoding identical ones.
 
 ## Known limitations
 

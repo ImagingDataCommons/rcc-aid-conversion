@@ -179,6 +179,54 @@ reads to decide how far to trust a segmentation; getting it wrong misrepresents 
 
 ---
 
+## ADR-012 — A non-conformant `ProcedureCodeSequence` in the source is stripped from reference copies
+
+**Decision.** `rcc_aid.sanitize_dicom` writes copies of the affected reference instances with
+`ProcedureCodeSequence` (0008,1032) removed, into `data/dicom_sanitized/<case_id>/`, and repoints that
+case's reference list at them. 11 of the 129 cases need it.
+
+**Why.** dcmqi copies study-level attributes from the reference image into the derived SEG.
+`CodeMeaning` (0008,0104) is Type 1 in the Code Sequence Macro, so a malformed source item makes dcmqi
+abort outright:
+
+```
+ERROR - CodeMeaning (0008,0104) absent in CodeSequenceMacro (type 1)
+ERROR - Could not write item #0 in ProcedureCodeSequence: Missing Attribute(s)
+FATAL ERROR: Writing of the SEG dataset failed!
+```
+
+The source TCGA CT is at fault, in two variants:
+
+| Variant | Cases | `ProcedureCodeSequence` item |
+|---|--:|---|
+| empty item | 8 | `CodeValue=None, CodingSchemeDesignator=None, CodeMeaning=None` |
+| private code, no meaning | 3 | `CodeValue='74160', CodingSchemeDesignator='99DRSYS134', CodeMeaning=None` |
+
+**`--noDicomValueChecks` does not help**, even though its documentation describes this exact case
+("when taking over attributes from non-compliant DICOM image files"). Tested against
+`KIRC_…114780349668855871735537947410_acq_5` on dcmqi 1.5.7: identical failure. The flag relaxes
+*value* checking, while this is a missing Type 1 *attribute* check inside DCMTK's `CodeSequenceMacro`
+write path. Worth reporting upstream — a converter should not be stopped dead by an optional
+attribute it chose to copy.
+
+**Why removal rather than repair.** `ProcedureCodeSequence` is Type 3 in the General Study module, so
+omitting it is conformant. Supplying a `CodeMeaning` would mean inventing clinical metadata the source
+does not contain.
+
+**Scope is deliberately minimal.** A stricter reading would also flag 3 further cases whose items have
+a valid `CodeValue` and `CodeMeaning` but no `CodingSchemeDesignator` — also a Type 1 violation, but one
+dcmqi accepts. Those carry real content (`CodeValue='6500572'`,
+`CodeMeaning='CT, ABDOMEN W&W/O CONTRAST'`), so stripping their sequence would destroy clinical
+metadata to fix a non-conformance nothing is tripping over. They are recorded in
+`qc/sanitization_report.csv` under `non_conformant_but_tolerated` and left untouched.
+
+**Safeguards.** Only the listed reference instances are copied; `SOPInstanceUID`, geometry and
+`PixelData` are carried over verbatim, and the module asserts the ordered `SOPInstanceUID` list is
+unchanged before repointing anything. The original reference list is kept as `<case_id>.txt.orig`. The
+resulting SEG therefore references exactly the same instances as it would have.
+
+---
+
 ## ADR-011 — Label maps are repaired before conversion, not converted as published
 
 **Decision.** `rcc_aid.normalize_labels` rewrites every label map to `data/labels_norm/<case>_seg.nrrd`
