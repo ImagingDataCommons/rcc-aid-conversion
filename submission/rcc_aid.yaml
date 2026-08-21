@@ -1,0 +1,172 @@
+analysis_result_id: rcc_aid
+analysis_result_name: "RCC-AID"
+title: "RCC-AID: DICOM-converted kidney, mass and cyst annotations for the TCGA renal cell carcinoma collections"
+cancer_types:
+- Clear Cell Renal Cell Carcinoma
+- Papillary Renal Cell Carcinoma
+- Chromophobe Renal Cell Carcinoma
+tumor_locations:
+- Kidney
+collections:
+- tcga_kich
+- tcga_kirc
+- tcga_kirp
+source_doi: 10.5281/zenodo.20719257
+source_url: https://doi.org/10.5281/zenodo.20719257
+license:
+  short_name: CC BY 4.0
+  long_name: Creative Commons Attribution 4.0 International License
+  url: https://creativecommons.org/licenses/by/4.0/
+abstract: null
+summary: |-
+  This dataset contributes DICOM-converted voxel-level annotations of the kidney and of renal masses
+  and cysts to the TCGA-KIRC, TCGA-KIRP and TCGA-KICH collections in the NCI Imaging Data Commons.
+  The annotations cover 129 CT scans from 91 patients, spanning clear cell (85 scans), papillary (26)
+  and chromophobe (18) renal cell carcinoma.
+
+  The annotations were released by the RCC-AID project in the NIfTI format, which leaves them
+  disconnected from the DICOM images they describe: they cannot be loaded in DICOM viewers, they carry
+  no standard terminology identifying what was segmented, and they cannot be queried alongside the
+  imaging. Converting them to DICOM Segmentation ties each annotation back to the exact source image
+  instances, describes the segmented structures with standard SNOMED-CT terminology, and makes them
+  usable in off-the-shelf tools such as the OHIF Viewer.
+
+  Please see the [RCC-AID](https://doi.org/10.5281/zenodo.20719257) record to learn more about the
+  annotations and about attribution and citation requirements.
+description: |-
+  This dataset contributes DICOM-converted voxel-level annotations of the kidney and of renal masses
+  and cysts to the TCGA-KIRC, TCGA-KIRP and TCGA-KICH collections available from the NCI Imaging Data
+  Commons (IDC) [1]. The annotations were produced by the RCC-AID project [2,3] and originally
+  released in the NIfTI format at [https://doi.org/10.5281/zenodo.20719257](https://doi.org/10.5281/zenodo.20719257).
+  They cover 129 CT scans from 91 patients: 85 clear cell, 26 papillary and 18 chromophobe renal cell
+  carcinoma cases, drawn from three TCGA collections originally released through The Cancer Imaging
+  Archive (TCIA) [4,5,6].
+
+  Converting these annotations from NIfTI to DICOM allows users to visualize the CT images and the
+  corresponding kidney, mass and cyst annotations together in public DICOM-based viewers. The DICOM
+  Segmentation format carries additional metadata describing each segmented structure using standard
+  SNOMED-CT terminology, and references the specific source image instances that each annotation
+  applies to. The converted objects can be stored in any DICOM server that supports them (including
+  Google Healthcare DICOM stores) and visualized with off-the-shelf tools such as the OHIF Viewer.
+
+  Each annotated scan is represented by a single DICOM Segmentation object using the LABELMAP
+  segmentation type, containing up to three segments:
+
+  | Segment | Segmented property category | Segmented property type | Anatomic region |
+  |---|---|---|---|
+  | Kidney | Anatomical Structure (SCT 91723000) | Kidney (SCT 64033007) | -- |
+  | Mass | Morphologically Abnormal Structure (SCT 49755003) | Mass (SCT 4147007) | Kidney (SCT 64033007) |
+  | Cyst | Morphologically Abnormal Structure (SCT 49755003) | Cyst (SCT 367643001) | Kidney (SCT 64033007) |
+
+  All 129 objects contain the Kidney and Mass segments; 38 additionally contain a Cyst segment. The
+  segments are coded following DICOM PS3.16, using the coded terminology published at
+  [https://fedorov.github.io/dcmterms/](https://fedorov.github.io/dcmterms/). "Mass" was chosen over a
+  histology-specific concept because it reflects what was delineated on the CT images, and because it
+  matches the coding already used by the kidney segmentations in the C4KC-KiTS and BAMF-AIMI-Annotations
+  analysis results in IDC. The renal cell carcinoma subtype is recorded at the dataset level rather
+  than inside the segmentation objects.
+
+  The segments are marked as SEMIAUTOMATIC with the algorithm name "Robust Kidney Abnormality
+  Segmentation": as described in the RCC-AID publication [2], a public segmentation model was used to
+  delineate the kidneys and an abstract "renal abnormality" class, after which two annotators quality
+  checked and corrected the result and assigned the abnormality masks to tumors and cysts, with
+  uncertain cases reviewed by a board-certified radiologist.
+
+  Conversion from NIfTI to DICOM SEG modality was performed using the dcmqi toolkit
+  ([https://github.com/QIICR/dcmqi](https://github.com/QIICR/dcmqi)) [7]. Each converted object
+  references the exact set of source DICOM instances that produced the annotated volume; this matters
+  because several of the source CT series bundle multiple contrast phases into a single DICOM series,
+  and the annotations apply to one acquisition within such a series. Details of the conversion process,
+  including the terminology decisions and per-case quality control, are provided in this GitHub
+  repository: [https://github.com/fedorov/rcc-aid-conversion](https://github.com/fedorov/rcc-aid-conversion).
+description_format: markdown
+citation: |-
+  de Boer, S., Häntze, H., Ziegelmayer, S., Russo, T., van Ginneken, B., Prokop, M., Bressem, K., &
+  Hering, A. (2026). <i>RCC-AID: Renal Cell Carcinoma AI Dataset for Medical Imaging Research</i>
+  [Data set]. Zenodo. https://doi.org/10.5281/zenodo.20719257
+references:
+  publications:
+  - doi: 10.64898/2026.04.22.26351451
+    title: "Accessible and Reproducible Renal Cell Carcinoma Research Through Open-Sourcing Data and Annotations"
+  related_datasets:
+  - doi: 10.5281/zenodo.20719257
+    title: "RCC-AID: Renal Cell Carcinoma AI Dataset for Medical Imaging Research"
+    relationship: source
+  - doi: 10.7937/K9/TCIA.2016.V6PBVTDR
+    title: "Radiology Data from The Cancer Genome Atlas Kidney Renal Clear Cell Carcinoma [TCGA-KIRC] collection"
+    relationship: source
+  - doi: 10.7937/K9/TCIA.2016.ACWOGBEF
+    title: "Radiology Data from The Cancer Genome Atlas Kidney Renal Papillary Cell Carcinoma [TCGA-KIRP] collection"
+    relationship: source
+  - doi: 10.7937/K9/TCIA.2016.YU3RBCZN
+    title: "Radiology Data from The Cancer Genome Atlas Kidney Chromophobe [TCGA-KICH] collection"
+    relationship: source
+  software_tools:
+  - url: https://github.com/QIICR/dcmqi
+    title: "dcmqi: DICOM for Quantitative Imaging (v1.5.7)"
+  - url: https://github.com/fedorov/rcc-aid-conversion
+    title: "RCC-AID to DICOM SEG conversion pipeline, documentation and QC reports"
+  other_links:
+  - url: https://fedorov.github.io/dcmterms/
+    title: "dcmterms: DICOM PS3.16 coded terminology browser, used to source the segment codes"
+  - url: https://github.com/DIAGNijmegen/oncology-RCC-AID-codebase
+    title: "RCC-AID codebase (upstream DICOM to NIfTI conversion)"
+updated: '2026-08-21'
+idc_versions: null
+idc_internal:
+  converted_data_location: null
+  source_data_location: https://zenodo.org/records/20719257
+  review_dicom_store: projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot
+  notes:
+  - "Conversion pipeline, decision log and QC reports: https://github.com/fedorov/rcc-aid-conversion"
+  - "129 label maps converted, one DICOM LABELMAP SEG per annotated scan. All 129 source CT series
+    are present in IDC (16055 instances, 8.27 GB) and were verified against the record's manifest.tcia."
+  - "SEGMENTATION TYPE: this is LABELMAP, which as of IDC v24 has no precedent in the archive
+    (seg_index holds 172908 BINARY and 17238 FRACTIONAL series, zero LABELMAP). A BINARY variant was
+    generated in parallel and verified to decode identically, as an interoperability fallback should
+    LABELMAP support prove insufficient downstream."
+  - "UPSTREAM DEFECT, needs reporting to the RCC-AID authors: 13 of the 129 published NIfTI label maps
+    (all TCGA-KIRC, all from multi-acquisition series) store their slices in descending DICOM z order
+    while declaring a +z direction cosine, so their declared geometry places the annotation outside the
+    imaged range. The same 13 files are float32 with label values such as 1.0000152587890625 rather
+    than exact integers. Both were corrected before conversion; the correction was validated by image
+    intensity (fraction of kidney-labelled voxels in soft tissue: 0.995 median for the chosen
+    orientation vs 0.790 for the reverse, chosen better in 129/129 cases). See docs/decisions.md
+    ADR-011 in the conversion repository."
+  - "CATEGORY CODE: the Kidney segment uses (91723000, SCT, 'Anatomical Structure') per DICOM PS3.16
+    CID 7150. Note that dcmqi's bundled code list uses 123037004, which does not occur anywhere in
+    Part 16, so existing dcmqi-generated content in IDC likely differs on this attribute. Segmented
+    property TYPE codes are unchanged, so queries by segmented structure remain compatible."
+  - "OPEN: zenodo.creators below lists only the conversion author and needs confirmation before any
+    deposit is created."
+zenodo:
+  status: draft
+  record_id: null
+  concept_doi: null
+  latest_doi: null
+  creators:
+  - name: Fedorov, Andrey
+    affiliation: Brigham and Women's Hospital Department of Radiology
+    orcid: 0000-0003-4806-9413
+  related_identifiers:
+  - identifier: 10.5281/zenodo.20719257
+    relation: isDerivedFrom
+    resource_type: dataset
+  - identifier: 10.64898/2026.04.22.26351451
+    relation: isDescribedBy
+    resource_type: publication
+  - identifier: 10.7937/K9/TCIA.2016.V6PBVTDR
+    relation: isDerivedFrom
+    resource_type: dataset
+  - identifier: 10.7937/K9/TCIA.2016.ACWOGBEF
+    relation: isDerivedFrom
+    resource_type: dataset
+  - identifier: 10.7937/K9/TCIA.2016.YU3RBCZN
+    relation: isDerivedFrom
+    resource_type: dataset
+  keywords:
+  - Renal Cell Carcinoma
+  - Kidney cancer
+  - Image Segmentation
+  - DICOM
+  - DICOM Segmentation

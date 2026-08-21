@@ -1,0 +1,15 @@
+# Bulk data — never committed. See docs/plan.md for how to regenerate.
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.uv/
+
+# macOS
+.DS_Store
+
+# Review exports — copies of data/, regenerate with scripts/export_review_tree.py
+review/
