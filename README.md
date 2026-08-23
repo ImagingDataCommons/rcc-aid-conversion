@@ -87,11 +87,17 @@ describe the DICOM correctly ([ADR-011](docs/decisions.md)).
 To review the output as files rather than in a viewer:
 
 ```bash
-python scripts/export_review_tree.py --out review/pilot --cases <case_id> ...
+python scripts/export_review_tree.py --out review/pilot --ct series --cases <case_id> ...
 ```
 
 which lays the objects out as `PatientID / Modality / SeriesName`, with the original published NIfTI
 and the normalized NRRD alongside for comparison.
+
+`--ct series` also copies the segmented CT, making each patient folder self-contained enough to load
+in 3D Slicer and check that the segmentation overlays the images. It is off by default because the CT
+dominates the size — ~292 MB for the three pilot cases against 9.9 MB without it, and ~8 GB for all
+129. `--ct referenced` copies only the instances the segmentation references, which for a
+multi-acquisition series is the subset that loads as a single regularly-spaced volume.
 
 `images.zip` (4.1 GB) is deliberately **not** downloaded — it holds NIfTI copies of imaging that IDC
 already serves as DICOM ([ADR-002](docs/decisions.md)).

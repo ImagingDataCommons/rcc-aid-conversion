@@ -264,6 +264,29 @@ overlay. `ReferencedSeriesSequence` points at the real TCGA series in IDC, so th
 this particular review store, not of the objects. Re-import the referenced instances (90, 133 and 251
 respectively) if the URLs need to render.
 
+**Local overlay review instead.** Because the store holds no images, the overlay is checked from files
+in 3D Slicer rather than in OHIF. `scripts/export_review_tree.py --out review/pilot --ct series` puts
+the source CT next to the segmentations:
+
+```
+review/pilot/<PatientID>/CT/<SeriesNumber>-<SeriesDescription>/     full series, 175 / 133 / 251 instances
+                        /SEG/300-…/                                LABELMAP
+                        /SEG/301-…-BINARY/                         BINARY
+                        /NIFTI/original-published/                 as published on Zenodo
+                        /NIFTI/normalized-for-conversion/          after ADR-011 repair
+```
+
+565 files, 292 MB — the same 559 CT instances plus 6 SEG objects that were imported into the store, so
+this is also the file set to re-import if the viewer URLs are ever wanted to render.
+
+Verified after export: every instance referenced by a SEG is present (0 missing in all three cases),
+the referenced subset reproduces the label grid in ascending slice order (max origin deviation
+3.75e-04 mm, spacing and direction exact), and TCGA-DV-5568 / TCGA-KM-8440 export exactly their
+referenced sets. TCGA-DV-5567 exports 85 instances beyond the 90 referenced — its acquisitions are
+`{3: 90, 1: 55, 2: 30}` and only acquisition 3 was segmented, so **that folder is not a single
+loadable volume**; Slicer will report inconsistent geometry and must be allowed to split it by
+acquisition. Use `--ct referenced` to get the loadable subset directly.
+
 **Outcome.** Both flavours load and are listed correctly, with `SeriesDescription`, `SeriesNumber` and
 `PatientID` as intended. One difference was observed and is recorded under Known limitations below:
 the two flavours render in different colors despite encoding identical ones.
