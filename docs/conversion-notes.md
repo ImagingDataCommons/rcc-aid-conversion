@@ -163,9 +163,49 @@ Reference — and ours is, referencing the source CT series with per-frame Plane
 the deflate gap, this suggests `dciodvfy`'s Segmentation IOD model predates the LABELMAP supplement. We
 record it rather than treating it as a defect, and have not concluded which side is at fault.
 
+## Repairs applied to the reference DICOM
+
+Two attributes in the source TCGA CT are non-conformant in ways that reach our output, so
+`rcc_aid.sanitize_dicom` writes repaired copies of the affected reference instances into
+`data/dicom_sanitized/<case_id>/` and repoints the case's reference list, keeping the original list as
+`<case_id>.txt.orig`. Rationale in [ADR-012](decisions.md).
+
+The authoritative record is `qc/sanitization_audit.csv`, produced by
+`python -m rcc_aid.sanitize_dicom --audit`, which diffs every sanitized copy against its original on
+disk rather than trusting the run log:
+
+| Attribute | Cases | Instances | Change |
+|---|--:|--:|---|
+| `BodyPartExamined` (0018,0015) | 19 | 2,421 | `'Kidney'` → `'KIDNEY'` |
+| `ProcedureCodeSequence` (0008,1032) | 14 | 2,394 | single-item sequence removed |
+
+33 distinct cases (no overlap), 4,815 instances rewritten, **no other attribute changed**, and
+`SOPInstanceUID` preserved in every case. `--audit` re-runs cleanly with 0 cases outstanding.
+
+`ProcedureCodeSequence` removal is the only change that discards information. It was unusable in all 14
+cases — 8 wholly empty items, 3 with a private code and no `CodeMeaning`, 3 with a code and meaning but
+no `CodingSchemeDesignator` — and it is Type 3, so omitting it is conformant. The source remains
+available in IDC for anyone who needs those local procedure codes.
+
 ## Quality control
 
-`qc/qc_report.csv`, one row per case. Every case must satisfy all of:
+`qc/qc_report.csv`, one row per case. **129/129 pass.**
+
+| Check | Result |
+|---|---|
+| LABELMAP round-trip vs the label map dcmqi consumed | exact, 129/129 |
+| BINARY round-trip, offset-aware | exact, 129/129 |
+| LABELMAP ≡ BINARY, embedded in full source geometry | 129/129 |
+| `dciodvfy`, both flavours | clean, 129/129; IOD recognised as `Segmentation` |
+| Labelled voxels outside BINARY's encoded extent | 0 in every case |
+
+BINARY skips a median of 39 empty slices (max 619), every one verified to contain no labels.
+
+Output totals: LABELMAP **7.6 MB** for all 129 objects (median 42 KB, max 0.4 MB); BINARY **334.8 MB**
+(median 1.6 MB, max 21.3 MB) — a 44× difference across the dataset. Median frames per object: 85
+LABELMAP (all slices), 49 BINARY (non-empty only). Median referenced instances: 85 and 30 respectively.
+
+Every case must satisfy all of:
 
 - LABELMAP decodes **exactly** equal to the label map dcmqi consumed;
 - BINARY likewise, after locating its crop from the origin — and the source must be pure background

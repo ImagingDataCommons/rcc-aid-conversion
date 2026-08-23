@@ -90,6 +90,13 @@ DCIODVFY_EXPECTED = (
     # for LABELMAP, which points at its Segmentation IOD model predating the LABELMAP supplement
     # (it cannot read Deflated transfer syntax either). Recorded, not treated as a defect.
     "Element=<PatientOrientation> Module=<GeneralImage>",
+    # Private/legacy defined terms that dcmqi propagates verbatim from the source TCGA CT. Each was
+    # confirmed present in the source before being allowlisted here: GEIIS, BROKER and SYN99 appear as
+    # ProcedureCodeSequence / PerformedProtocolCodeSequence CodingSchemeDesignator, and "ISO_IR 6" as
+    # SpecificCharacterSet. They affect both flavours identically, and rewriting them would mean
+    # altering metadata inherited from the source collection rather than fixing our conversion.
+    "for value 1 of attribute <Coding Scheme Designator>",
+    "for value 1 of attribute <Specific Character Set>",
 )
 
 

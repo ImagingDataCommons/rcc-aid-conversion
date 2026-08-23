@@ -59,13 +59,43 @@ CODE_SEQUENCES = ["ProcedureCodeSequence", "AdmittingDiagnosesCodeSequence",
                   "ReasonForPerformedProcedureCodeSequence"]
 REQUIRED_IN_CODE_ITEM = ["CodeValue", "CodingSchemeDesignator", "CodeMeaning"]
 
-# Intervene only where conversion is actually blocked. All three attributes above are Type 1, but
-# dcmqi 1.5.7 enforces CodeMeaning alone -- it copies items with an absent CodingSchemeDesignator
-# without complaint. Three of the 129 source series are in exactly that position and carry real
-# content (e.g. CodeValue='6500572', CodeMeaning='CT, ABDOMEN W&W/O CONTRAST'); dropping their
-# sequence would destroy clinical metadata to fix a non-conformance nothing is tripping over. So the
-# blocking criterion is a missing CodeMeaning, and the rest is reported but left alone.
-BLOCKING_ATTR = "CodeMeaning"
+# An item is unusable if ANY of the Type 1 attributes is missing.
+#
+# This was initially narrowed to CodeMeaning alone, on the grounds that dcmqi 1.5.7 only enforces that
+# one and three cases with a valid CodeValue+CodeMeaning but no CodingSchemeDesignator carried real
+# content (e.g. CodeValue='6500572', CodeMeaning='CT, ABDOMEN W&W/O CONTRAST') that dropping would
+# discard. That was wrong. dcmqi copies those items through happily, but dciodvfy then reports
+# `Missing attribute Type 1C Conditional Element=<CodingSchemeDesignator>` against *our* output: the
+# objects we emit are non-conformant. Tolerating a source defect is one thing; propagating it into a
+# dataset headed for IDC is another. The alternative -- inventing a "99..." private scheme designator
+# -- would fabricate a coding-scheme identity the source never asserted, which is worse than omitting
+# an optional (Type 3) sequence.
+REQUIRED_IN_CODE_ITEM_BLOCKING = REQUIRED_IN_CODE_ITEM
+
+# VR CS (Code String) permits only uppercase A-Z, 0-9, space and underscore. dcmqi takes
+# BodyPartExamined from the reference image in preference to the value in our metadata JSON (we supply
+# "KIDNEY"), so a source carrying "Kidney" propagates its own VR violation straight into the output --
+# dciodvfy reports one error per lowercase character. Uppercasing is a pure normalisation to the
+# standard defined term, inventing nothing, so we fix it rather than ship invalid Code Strings.
+CS_LEGAL = set("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 _")
+CS_ATTRS = ["BodyPartExamined"]
+
+
+def cs_violations(ds: pydicom.Dataset) -> list[tuple[str, str, str]]:
+    """(attribute, current value, uppercased value) where uppercasing makes the value CS-legal."""
+    out = []
+    for name in CS_ATTRS:
+        val = ds.get(name)
+        if val is None:
+            continue
+        val = str(val)
+        if set(val) <= CS_LEGAL:
+            continue
+        fixed = val.upper()
+        # Only touch it when uppercasing actually resolves the violation; anything else needs a human.
+        if set(fixed) <= CS_LEGAL:
+            out.append((name, val, fixed))
+    return out
 
 
 def malformed(ds: pydicom.Dataset) -> list[str]:
@@ -76,14 +106,16 @@ def malformed(ds: pydicom.Dataset) -> list[str]:
         if seq is None:
             continue
         for item in seq:
-            if not str(item.get(BLOCKING_ATTR, "") or "").strip():
+            if any(not str(item.get(t, "") or "").strip()
+                   for t in REQUIRED_IN_CODE_ITEM_BLOCKING):
                 bad.append(name)
                 break
     return bad
 
 
 def non_conformant_but_tolerated(ds: pydicom.Dataset) -> list[str]:
-    """Type 1 violations dcmqi accepts. Reported for the record; not modified."""
+    """Type 1 violations left in place. Empty now that all of them are treated as
+    blocking -- retained so the report keeps the column and a future relaxation is visible."""
     out = []
     for name in CODE_SEQUENCES:
         seq = ds.get(name)
@@ -105,11 +137,80 @@ def describe(ds: pydicom.Dataset, name: str) -> str:
     )
 
 
+def audit() -> "pd.DataFrame":
+    """Diff every sanitized reference copy against its original, from what is on disk.
+
+    This is the authoritative record of what was changed: it does not trust the run log, it compares
+    the files. Each case whose reference list was repointed keeps its pristine list as
+    <case_id>.txt.orig, which gives the original path for every sanitized instance.
+    """
+    rows = []
+    for backup in sorted(REFS_DIR.glob("*.txt.orig")):
+        case_id = backup.name[: -len(".txt.orig")]
+        originals = [ln.strip() for ln in backup.read_text().splitlines() if ln.strip()]
+        current = [ln.strip() for ln in (REFS_DIR / f"{case_id}.txt").read_text().splitlines()
+                   if ln.strip()]
+        if len(originals) != len(current):
+            rows.append({"case_id": case_id, "status": "MISMATCHED_LENGTHS",
+                         "n_instances": len(current)})
+            continue
+
+        changes: dict[str, set[str]] = {}
+        uid_ok = True
+        n_changed = 0
+        for o, c in zip(originals, current):
+            a = pydicom.dcmread(o, stop_before_pixels=True, force=True)
+            b = pydicom.dcmread(c, stop_before_pixels=True, force=True)
+            if str(a.SOPInstanceUID) != str(b.SOPInstanceUID):
+                uid_ok = False
+            keys = {e.keyword for e in a if e.keyword} | {e.keyword for e in b if e.keyword}
+            inst_changed = False
+            for k in keys:
+                va, vb = a.get(k, "<absent>"), b.get(k, "<absent>")
+                if str(va) != str(vb):
+                    changes.setdefault(k, set()).add(f"{va!r} -> {vb!r}")
+                    inst_changed = True
+            if inst_changed:
+                n_changed += 1
+
+        rows.append({
+            "case_id": case_id,
+            "status": "ok" if uid_ok else "SOPInstanceUID_CHANGED",
+            "n_instances": len(current),
+            "n_instances_changed": n_changed,
+            "attributes_changed": ",".join(sorted(changes)),
+            "changes": " | ".join(f"{k}: {'; '.join(sorted(v)[:2])}"
+                                 for k, v in sorted(changes.items()))[:600],
+            "sanitized_dir": f"data/dicom_sanitized/{case_id}",
+        })
+    return pd.DataFrame(rows)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cases", nargs="*")
     ap.add_argument("--check", action="store_true", help="report only; do not write or repoint")
+    ap.add_argument("--audit", action="store_true",
+                    help="diff sanitized copies against originals; write qc/sanitization_audit.csv")
     args = ap.parse_args()
+
+    if args.audit:
+        df = audit()
+        out = ROOT / "qc" / "sanitization_audit.csv"
+        df.to_csv(out, index=False)
+        print(f"audited {len(df)} sanitized case(s) -> {out.relative_to(ROOT)}\n")
+        if df.empty:
+            return 0
+        print(df["status"].value_counts().to_string())
+        print("\nattributes changed, by frequency:")
+        from collections import Counter
+        cnt = Counter(a for v in df["attributes_changed"].fillna("") if v for a in v.split(","))
+        for a, n in cnt.most_common():
+            print(f"  {a:28s} {n} case(s)")
+        print(f"\ninstances rewritten: {int(df['n_instances_changed'].fillna(0).sum())}"
+              f" of {int(df['n_instances'].fillna(0).sum())}")
+        bad = df[df["status"] != "ok"]
+        return 1 if len(bad) else 0
 
     res = pd.read_csv(RESOLUTION_CSV)
     res = res[res["status"] == "resolved"]
@@ -130,17 +231,19 @@ def main() -> int:
         first = pydicom.dcmread(files[0], stop_before_pixels=True, force=True)
         bad = malformed(first)
         tolerated = non_conformant_but_tolerated(first)
+        cs_bad = cs_violations(first)
         rec = {
             "case_id": case_id,
             "n_instances": len(files),
             "malformed_sequences": ",".join(bad),
             "detail": " | ".join(f"{n}: {describe(first, n)}" for n in bad),
             "non_conformant_but_tolerated": ",".join(tolerated),
+            "cs_violations": ",".join(f"{n}={v!r}->{f!r}" for n, v, f in cs_bad),
             "tolerated_detail": " | ".join(
                 f"{n.split('(')[0]}: {describe(first, n.split('(')[0])}" for n in tolerated),
             "action": "none",
         }
-        if not bad:
+        if not bad and not cs_bad:
             rows.append(rec)
             continue
 
@@ -148,7 +251,8 @@ def main() -> int:
             rec["action"] = "would_sanitize"
             rows.append(rec)
             n_fixed += 1
-            print(f"  needs fix  {case_id}  {rec['detail']}")
+            print(f"  needs fix  {case_id}  "
+                  f"{rec['detail'] or rec['cs_violations']}")
             continue
 
         out_dir = SANITIZED_DIR / case_id
@@ -156,13 +260,16 @@ def main() -> int:
         new_files, n_touched = [], 0
         for src in files:
             ds = pydicom.dcmread(src)
-            removed = [n for n in malformed(ds)]
+            removed = list(malformed(ds))
             for name in removed:
                 delattr(ds, name)
+            fixed_cs = cs_violations(ds)
+            for name, _old, new_val in fixed_cs:
+                setattr(ds, name, new_val)
             dest = out_dir / Path(src).name
             ds.save_as(str(dest), enforce_file_format=True)
             new_files.append(str(dest))
-            if removed:
+            if removed or fixed_cs:
                 n_touched += 1
 
         # sanity: the instance identity and count must be unchanged
@@ -176,14 +283,23 @@ def main() -> int:
             print(f"  FAILED     {case_id}: instance identity changed", file=sys.stderr)
             continue
 
-        shutil.copy2(ref_list, ref_list.with_suffix(".txt.orig"))
+        # Keep the first backup: a case can be sanitized more than once (e.g. a code-sequence
+        # pass followed by a CS pass), and overwriting would lose the pristine list.
+        backup = ref_list.with_suffix(".txt.orig")
+        if not backup.exists():
+            shutil.copy2(ref_list, backup)
         ref_list.write_text("\n".join(new_files) + "\n")
         rec.update(action="sanitized", n_instances_modified=n_touched,
                    sanitized_dir=str(out_dir.relative_to(ROOT)))
         rows.append(rec)
         n_fixed += 1
-        print(f"  sanitized  {case_id}  removed {','.join(bad)} from {n_touched}/{len(files)}"
-              f" instance(s)")
+        what = []
+        if bad:
+            what.append(f"removed {','.join(bad)}")
+        if cs_bad:
+            what.append("uppercased " + ",".join(n for n, _, _ in cs_bad))
+        print(f"  sanitized  {case_id}  {'; '.join(what)}"
+              f" in {n_touched}/{len(files)} instance(s)")
 
     df = pd.DataFrame(rows)
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)

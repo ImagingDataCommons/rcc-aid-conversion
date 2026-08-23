@@ -179,11 +179,25 @@ reads to decide how far to trust a segmentation; getting it wrong misrepresents 
 
 ---
 
-## ADR-012 — A non-conformant `ProcedureCodeSequence` in the source is stripped from reference copies
+## ADR-012 — Two non-conformant attributes in the source are repaired in reference copies
 
-**Decision.** `rcc_aid.sanitize_dicom` writes copies of the affected reference instances with
-`ProcedureCodeSequence` (0008,1032) removed, into `data/dicom_sanitized/<case_id>/`, and repoints that
-case's reference list at them. 11 of the 129 cases need it.
+**Decision.** `rcc_aid.sanitize_dicom` writes repaired copies of the affected reference instances into
+`data/dicom_sanitized/<case_id>/` and repoints that case's reference list at them, keeping the pristine
+list as `<case_id>.txt.orig`.
+
+**Exactly what changes**, verified by diffing the copies against the originals on disk
+(`sanitize_dicom --audit` → `qc/sanitization_audit.csv`) rather than from run logs:
+
+| Attribute | Cases | Instances | Change |
+|---|--:|--:|---|
+| `BodyPartExamined` (0018,0015) | 19 | 2,421 | `'Kidney'` → `'KIDNEY'` |
+| `ProcedureCodeSequence` (0008,1032) | 14 | 2,394 | single-item sequence removed |
+
+33 distinct cases, no overlap between the two sets, 4,815 instances rewritten. **No other attribute
+differs** — `SOPInstanceUID`, geometry and pixel data are carried over byte-identical, and the audit
+asserts the ordered `SOPInstanceUID` list is unchanged for all 33 cases.
+
+### `ProcedureCodeSequence` — removed
 
 **Why.** dcmqi copies study-level attributes from the reference image into the derived SEG.
 `CodeMeaning` (0008,0104) is Type 1 in the Code Sequence Macro, so a malformed source item makes dcmqi
@@ -210,20 +224,33 @@ write path. Worth reporting upstream — a converter should not be stopped dead 
 attribute it chose to copy.
 
 **Why removal rather than repair.** `ProcedureCodeSequence` is Type 3 in the General Study module, so
-omitting it is conformant. Supplying a `CodeMeaning` would mean inventing clinical metadata the source
-does not contain.
+omitting it is conformant. Filling in the missing attribute would mean inventing a code value, a coding
+scheme identity, or a procedure name that the source never asserted.
 
-**Scope is deliberately minimal.** A stricter reading would also flag 3 further cases whose items have
-a valid `CodeValue` and `CodeMeaning` but no `CodingSchemeDesignator` — also a Type 1 violation, but one
-dcmqi accepts. Those carry real content (`CodeValue='6500572'`,
-`CodeMeaning='CT, ABDOMEN W&W/O CONTRAST'`), so stripping their sequence would destroy clinical
-metadata to fix a non-conformance nothing is tripping over. They are recorded in
-`qc/sanitization_report.csv` under `non_conformant_but_tolerated` and left untouched.
+**A judgement that had to be corrected.** The blocking criterion was first narrowed to `CodeMeaning`
+alone, since that is the only one dcmqi enforces, on the grounds that 3 further cases had a valid
+`CodeValue` and `CodeMeaning` but no `CodingSchemeDesignator` and carried real content
+(`CodeValue='6500572'`, `CodeMeaning='CT, ABDOMEN W&W/O CONTRAST'`) that removal would discard. That
+reasoning was wrong on its final step: dcmqi copies those items through without complaint, but
+`dciodvfy` then reports `Missing attribute Type 1C Conditional Element=<CodingSchemeDesignator>`
+against **our** output. Tolerating a defect in someone else's data is one thing; emitting
+non-conformant objects into a dataset headed for IDC is another. The criterion is now any missing
+Type 1 attribute, which took the count from 11 to 14 and QC from 126/129 to 129/129.
 
-**Safeguards.** Only the listed reference instances are copied; `SOPInstanceUID`, geometry and
-`PixelData` are carried over verbatim, and the module asserts the ordered `SOPInstanceUID` list is
-unchanged before repointing anything. The original reference list is kept as `<case_id>.txt.orig`. The
-resulting SEG therefore references exactly the same instances as it would have.
+### `BodyPartExamined` — uppercased
+
+**Why.** VR CS (Code String) permits only uppercase `A–Z`, `0–9`, space and underscore. Our metadata
+JSON supplies `"KIDNEY"`, but **dcmqi prefers the reference image's value**, so 19 sources carrying
+`'Kidney'` propagated their own VR violation into our output — `dciodvfy` reports one error per
+lowercase character. Uppercasing is a pure normalisation to the standard defined term and invents
+nothing, so this is repaired rather than tolerated. (IDC's `index` reports `KIDNEY` for all 129 series,
+which is why the problem was invisible until the objects themselves were validated.)
+
+`cs_violations()` only rewrites a value when uppercasing actually makes it CS-legal; anything else is
+left for a human rather than mangled.
+
+**Safeguards.** Only the listed reference instances are copied. `sanitize_dicom --audit` re-derives the
+full record from the files on disk, so the claim above is checkable independently of any run log.
 
 ---
 
