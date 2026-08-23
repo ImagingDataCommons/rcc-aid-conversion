@@ -218,8 +218,8 @@ Every case must satisfy all of:
 
 ## Viewer verification
 
-The three pilot cases were loaded into a Google Healthcare DICOM store to check them in a real DICOM
-viewer, rather than only through `segimage2itkimage`.
+All 258 generated objects were loaded into a Google Healthcare DICOM store to check them in a real
+DICOM viewer, rather than only through `segimage2itkimage`.
 
 **Store**
 
@@ -230,11 +230,49 @@ projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/d
 DICOMweb endpoint:
 `https://healthcare.googleapis.com/v1/<store path above>/dicomWeb`
 
-**How it was loaded.** Objects were staged to `gs://af-dev-storage/rcc-aid-pilot/` and imported with
-`gcloud healthcare dicom-stores import gcs`, which reported **565/565 succeeded** (559 source CT
-instances plus the 6 SEG objects). The staging prefix was deleted afterwards. The CT series were then
-removed from the store with DICOMweb `DELETE` on each series, leaving the 6 SEG series only — see the
-caveat below.
+**Contents.** Verified by QIDO-RS against the local objects, matched on `SOPInstanceUID` rather than by
+count:
+
+| | |
+|---|--:|
+| Instances / series (one instance per SEG series) | 258 |
+| LABELMAP (`SeriesNumber` 300) | 129 |
+| BINARY (`SeriesNumber` 301) | 129 |
+| Studies | 106 |
+| Patients | 91 |
+| Local objects absent from the store | **0** |
+| Store objects not in the local set | **0** |
+
+106 studies rather than 129 because 17 studies carry more than one annotated series.
+
+**How it was loaded.** In two passes. The three pilot cases went first (staged to
+`gs://af-dev-storage/rcc-aid-pilot/`, imported alongside their CT, 565/565 succeeded, then the CT
+series deleted — see the caveat below). The remaining objects followed: all 258 were staged to
+`gs://af-dev-storage/rcc-aid-all/{labelmap,binary}/` — two prefixes because the two flavours share a
+basename — and imported with
+
+```bash
+gcloud healthcare dicom-stores import gcs rcc-aid-pilot \
+  --dataset=fedorov-dev-healthcare --location=us-central1 --project=idc-sandbox-000 \
+  --gcs-uri="gs://af-dev-storage/rcc-aid-all/**.dcm"
+```
+
+which reported **256 succeeded, 2 failed**. Both failures were
+`instance already exists with same Study/Series/SOPInstance UID`, for the KICH pilot case in both
+flavours — already present and byte-identical, so nothing was lost. The staging prefix was deleted
+afterwards.
+
+**Import does not overwrite, and that leaves stale objects.** The other four pilot objects
+(TCGA-DV-5567 and TCGA-DV-5568, both flavours) did *not* collide, because those two cases had been
+re-converted since the pilot import and dcmqi assigns fresh `SOPInstanceUID`s and
+`SeriesInstanceUID`s on every run. They therefore imported as new series *alongside* the superseded
+ones, leaving those two studies showing four SEG series each. The four stale series were removed with
+DICOMweb `DELETE`, after which the store matches the local set exactly.
+
+Worth remembering when re-importing after any re-conversion: a duplicate is rejected only if the UIDs
+are identical, so re-running the pipeline and re-importing accumulates orphans rather than replacing
+anything. Diff the store against the local objects by `SOPInstanceUID` — an instance count alone would
+have read 262 as "everything imported".
 
 **Viewer URLs.** Pattern:
 
@@ -248,6 +286,11 @@ https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=<StudyInsta
 | TCGA-DV-5568 | `KIRC_…118168941853469915520207083596_acq_unknown` | missing `AcquisitionNumber`, all three segments | `1.3.6.1.4.1.14519.5.2.1.1357.4004.239194542022979982905743234780` |
 | TCGA-KM-8440 | `KICH_…107096179260147523759389579292_acq_11` | clean regular series, all three segments | `1.3.6.1.4.1.14519.5.2.1.1357.4011.258217882991704941618731006997` |
 
+`qc/viewer_urls.csv` holds the URL for every one of the 106 studies, with `PatientID`,
+`collection_id`, the case ids it covers, and the segmentation series count — 36 series over 10
+tcga_kich studies, 170 over 79 tcga_kirc, 52 over 17 tcga_kirp. The three pilot studies below are
+the ones worth opening first.
+
 Full URLs:
 
 - TCGA-DV-5567 — <https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.1357.4004.259839416696453949057995272918&gcp=projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot>
@@ -258,11 +301,13 @@ Each study carries both flavours, distinguishable by `SeriesNumber` — 300 is L
 and also carries a `[BINARY]` suffix in `SeriesDescription` — so the two can be compared on the same
 images.
 
-**Caveat: the CT was removed from this store.** The SEG objects reference CT SOP Instances that are no
-longer present, so a viewer resolving referenced images from the same store will not composite the
-overlay. `ReferencedSeriesSequence` points at the real TCGA series in IDC, so this is a property of
-this particular review store, not of the objects. Re-import the referenced instances (90, 133 and 251
-respectively) if the URLs need to render.
+**Caveat: this store holds no CT at all.** It contains 258 SEG series and nothing else — the pilot CT
+was deleted after the first import, and no CT was loaded for the other 126 cases. Every SEG therefore
+references CT SOP Instances that are absent, so a viewer resolving referenced images from the same
+store lists the segmentations but cannot composite the overlay. `ReferencedSeriesSequence` points at
+the real TCGA series in IDC, so this is a property of this particular review store, not of the
+objects. Loading the referenced CT for all 129 cases would add ~8 GB against the SEGs' 327 MB; import
+the referenced instances for the specific studies of interest if the URLs need to render.
 
 **Local overlay review instead.** Because the store holds no images, the overlay is checked from files
 in 3D Slicer rather than in OHIF. `scripts/export_review_tree.py --out review/pilot --ct series` puts
@@ -288,8 +333,11 @@ loadable volume**; Slicer will report inconsistent geometry and must be allowed 
 acquisition. Use `--ct referenced` to get the loadable subset directly.
 
 **Outcome.** Both flavours load and are listed correctly, with `SeriesDescription`, `SeriesNumber` and
-`PatientID` as intended. One difference was observed and is recorded under Known limitations below:
-the two flavours render in different colors despite encoding identical ones.
+`PatientID` as intended, and all 258 objects were accepted by the store — which is itself a check, in
+that a Google Healthcare DICOM store parses and indexes what it ingests and rejected none of them.
+Visual review of the remaining 126 cases in the viewer is still to be done. One difference was
+observed and is recorded under Known limitations below: the two flavours render in different colors
+despite encoding identical ones.
 
 ## Known limitations
 
