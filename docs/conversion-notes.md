@@ -139,6 +139,48 @@ BINARY equivalent** — 66 MB per case, roughly 8.5 GB across the dataset, for o
 deflated. LABELMAP's 8-bits-per-voxel-per-frame encoding only pays off once the uniform background is
 compressed away. This is the empirical basis for [ADR-010](decisions.md).
 
+## Naming segmentations within a study
+
+Contrast phase alone does not identify a segmentation. 17 of the 106 studies annotate more than one
+CT series (40 of the 129 cases), and in **7 (study, phase) groups** — covering **15 cases** — two or
+three of those series share a phase. Almost always they are different reconstructions of the same
+acquisition:
+
+| Study | Phase | Source CT series | Slices | Segments |
+|---|---|---|--:|---|
+| …1618731006997 | arterial | `ARTERIAL PHASE 5.0 B31f` | 51 | Kidney + Mass |
+| …1618731006997 | arterial | `ARTERIAL PHASE 2.0 B31f` | 251 | Kidney + Mass + Cyst |
+
+An earlier version of this pipeline built `SeriesDescription` from the phase alone and used a fixed
+`SeriesNumber` of 300 / 301. Those two arterial segmentations were then *identical* in both fields,
+leaving them distinguishable only by `ReferencedSeriesSequence` — which no viewer series list shows.
+30 SEG series were ambiguous this way.
+
+Two changes fix it, and both are driven by the source CT `SeriesNumber`, which is unique within a
+study across all 129 cases:
+
+- **`SeriesDescription`** names the series explicitly:
+  `RCC-AID kidney/mass/cyst seg, arterial, CT series 7`, with ` [BINARY]` appended for that flavour.
+  The base text was shortened from `…/cyst segmentation, arterial phase` to fit: `SeriesDescription`
+  is `LO`, capped at 64 characters, and the longest value now generated is 62.
+  `make_metadata.series_description()` raises rather than truncates, since silently clipping to 64
+  could reproduce the very collision this removes.
+- **`SeriesNumber`** becomes `N*100+1` for LABELMAP and `N*100+2` for BINARY. Unique within a study
+  by construction — `N₁*100+1 = N₂*100+2` has no integer solution — and it sorts each segmentation
+  next to the CT series it was drawn on. Largest value generated is 618602, well inside `IS`.
+
+Verified over all 258 objects: **0** duplicated `(study, SeriesDescription)` pairs and **0**
+duplicated `(study, SeriesNumber)` pairs.
+
+Slice thickness would have been the more human-readable discriminator, but it is not sufficient: in
+2 of the 7 groups it does not separate the members — one study annotates two 5 mm delayed series
+(`Body 5.0 DELAYS CE` and `Body 5.0 VENOUS CE`), another has three delayed series of which two are
+5 mm.
+
+One upstream oddity noticed here and worth raising with the RCC-AID authors: the Zenodo
+`phase_name` column labels a series whose DICOM `SeriesDescription` is `Body 5.0 VENOUS CE` as
+`delayed`.
+
 ## DICOM conformance
 
 Validated with `dciodvfy` (dicom3tools). Both flavours are recognised as the `Segmentation` IOD and
@@ -236,8 +278,8 @@ count:
 | | |
 |---|--:|
 | Instances / series (one instance per SEG series) | 258 |
-| LABELMAP (`SeriesNumber` 300) | 129 |
-| BINARY (`SeriesNumber` 301) | 129 |
+| LABELMAP | 129 |
+| BINARY | 129 |
 | Studies | 106 |
 | Patients | 91 |
 | Local objects absent from the store | **0** |
@@ -304,9 +346,11 @@ Full URLs:
 - TCGA-DV-5568 — <https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.1357.4004.239194542022979982905743234780&gcp=projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot>
 - TCGA-KM-8440 — <https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.1357.4011.258217882991704941618731006997&gcp=projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot>
 
-Each study carries both flavours, distinguishable by `SeriesNumber` — 300 is LABELMAP, 301 is BINARY
-and also carries a `[BINARY]` suffix in `SeriesDescription` — so the two can be compared on the same
-images.
+Each study carries both flavours. `SeriesNumber` is derived from the source CT series — `N*100+1`
+for LABELMAP, `N*100+2` for BINARY — so the two sit next to each other and next to the CT they
+describe when a study is sorted by series number, and BINARY additionally carries a `[BINARY]`
+suffix in `SeriesDescription`. See *Naming segmentations within a study* below for why the series
+number is not simply a fixed pair.
 
 **Caveat: this store holds no CT at all.** It contains 258 SEG series and nothing else — the pilot CT
 was deleted after the first import, and no CT was loaded for the other 126 cases. Every SEG therefore
@@ -321,11 +365,14 @@ in 3D Slicer rather than in OHIF. `scripts/export_review_tree.py --out review/pi
 the source CT next to the segmentations:
 
 ```
-review/pilot/<PatientID>/CT/<SeriesNumber>-<SeriesDescription>/     full series, 175 / 133 / 251 instances
-                        /SEG/300-…/                                LABELMAP
-                        /SEG/301-…-BINARY/                         BINARY
-                        /NIFTI/original-published/                 as published on Zenodo
-                        /NIFTI/normalized-for-conversion/          after ADR-011 repair
+review/pilot/<PatientID>/CT/<N>-<SeriesDescription>/         full series, 175 / 133 / 251 instances
+                        /SEG/<N*100+1>-…/                   LABELMAP
+                        /SEG/<N*100+2>-…-BINARY/            BINARY
+                        /NIFTI/original-published/          as published on Zenodo
+                        /NIFTI/normalized-for-conversion/   after ADR-011 repair
+
+where N is the source CT SeriesNumber, so each segmentation folder sorts directly after the CT
+folder it was drawn on.
 ```
 
 565 files, 292 MB — the same 559 CT instances plus 6 SEG objects that were imported into the store, so

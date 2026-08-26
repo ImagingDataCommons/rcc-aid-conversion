@@ -33,18 +33,45 @@ ALGORITHM_NAME = "Robust Kidney Abnormality Segmentation"
 CONTENT_CREATOR_NAME = "RCC-AID"
 COORDINATING_CENTER = "Radboud University Medical Center"
 
-# SeriesNumber per output flavour, so both can sit in one study during QC comparison.
-SERIES_NUMBER = {"labelmap": "300", "binary": "301"}
+# SeriesNumber is derived from the source CT series: N -> N*100+1 for LABELMAP, N*100+2 for BINARY.
+# This keeps a segmentation adjacent to the images it describes when a study is sorted by series
+# number, and is unique within a study by construction -- N1*100+1 = N2*100+2 has no integer
+# solution, and the source series numbers are themselves unique within a study. Verified
+# collision-free over all 106 studies; largest value generated is 618602, well inside IS.
+SERIES_NUMBER_OFFSET = {"labelmap": 1, "binary": 2}
+# Only reachable if the source CT carries no SeriesNumber. Does not occur in this dataset.
+SERIES_NUMBER_FALLBACK = {"labelmap": "300", "binary": "301"}
+
+
+def series_number(row: pd.Series, flavour: str) -> str:
+    """IS. Derived from the source CT SeriesNumber -- see the note on SERIES_NUMBER_OFFSET."""
+    src = row.get("idc_SeriesNumber")
+    if src is None or pd.isna(src) or str(src).strip() == "":
+        return SERIES_NUMBER_FALLBACK[flavour]
+    return str(int(src) * 100 + SERIES_NUMBER_OFFSET[flavour])
 
 
 def series_description(row: pd.Series, flavour: str) -> str:
-    """LO, 64 characters max."""
+    """LO, 64 characters max.
+
+    Names the source CT series explicitly. Contrast phase alone is not enough to tell two
+    segmentations apart: 7 (study, phase) groups here cover more than one annotated series --
+    typically a thick and a thin reconstruction of the same acquisition -- so 15 cases would
+    otherwise produce descriptions identical to another segmentation in the same study,
+    distinguishable only by ReferencedSeriesSequence, which no viewer series list shows.
+    """
     phase = row.get("zen_phase_name")
-    phase_txt = f", {phase} phase" if isinstance(phase, str) and phase else ""
-    desc = f"RCC-AID kidney/mass/cyst segmentation{phase_txt}"
+    phase_txt = f", {phase}" if isinstance(phase, str) and phase else ""
+    src = row.get("idc_SeriesNumber")
+    src_txt = "" if src is None or pd.isna(src) else f", CT series {int(src)}"
+    desc = f"RCC-AID kidney/mass/cyst seg{phase_txt}{src_txt}"
     if flavour == "binary":
         desc += " [BINARY]"
-    return desc[:64]
+    # Raise rather than truncate: silently clipping to 64 could reproduce the very collision this
+    # is meant to remove. Longest across the 129 cases is 62.
+    if len(desc) > 64:
+        raise ValueError(f"SeriesDescription exceeds the LO limit at {len(desc)} chars: {desc!r}")
+    return desc
 
 
 def build_metadata(row: pd.Series, flavour: str) -> dict:
@@ -65,7 +92,7 @@ def build_metadata(row: pd.Series, flavour: str) -> dict:
         "ContentLabel": "SEGMENTATION",
         "ContentDescription": "RCC-AID kidney, mass and cyst segmentation",
         "SeriesDescription": series_description(row, flavour),
-        "SeriesNumber": SERIES_NUMBER[flavour],
+        "SeriesNumber": series_number(row, flavour),
         "InstanceNumber": "1",
         "BodyPartExamined": BODY_PART_EXAMINED,
         # Outer list = one entry per --inputImageList file; inner = segments within that file.

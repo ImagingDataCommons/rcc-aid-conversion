@@ -6,8 +6,8 @@
 --     --dataset=fedorov-dev-healthcare --location=us-central1 --project=idc-sandbox-000 \
 --     --bq-table=bq://idc-sandbox-000.andrey_cohorts.rcc_aid_dicom_metadata
 --
--- Expect 258 rows: 129 LABELMAP (SeriesNumber 300) + 129 BINARY (301), over 106 studies
--- and 91 patients. Re-run the export after any re-conversion -- it is a snapshot, not a view.
+-- Expect 258 rows: 129 LABELMAP + 129 BINARY, over 106 studies and 91 patients.
+-- Re-run the export after any re-conversion -- it is a snapshot, not a view.
 
 WITH params AS (
   SELECT
@@ -20,10 +20,13 @@ SELECT
   FORMAT('%s?StudyInstanceUIDs=%s&gcp=%s', p.viewer_base, m.StudyInstanceUID, p.dicom_store)
     AS viewer_url,
 
-  -- Which flavour. 300 = LABELMAP, 301 = BINARY; both are present for every case, so a
-  -- study opens with the two side by side on the same images.
+  -- Both flavours are present for every case, so a study opens with the two side by side on
+  -- the same images. SeriesNumber is derived from the source CT series: N*100+1 for LABELMAP,
+  -- N*100+2 for BINARY -- unique within a study, and sorting groups each pair next to the CT it
+  -- describes. DIV by 100 recovers the source series number.
   m.SegmentationType,
   SAFE_CAST(m.SeriesNumber AS INT64) AS SeriesNumber,
+  DIV(SAFE_CAST(m.SeriesNumber AS INT64), 100) AS source_ct_series_number,
   m.SeriesDescription,
   m.BodyPartExamined,
 
