@@ -287,9 +287,9 @@ count:
 
 106 studies rather than 129 because 17 studies carry more than one annotated series.
 
-**How it was loaded.** In two passes. The three pilot cases went first (staged to
-`gs://af-dev-storage/rcc-aid-pilot/`, imported alongside their CT, 565/565 succeeded, then the CT
-series deleted — see the caveat below). The remaining objects followed: all 258 were staged to
+**How it was loaded.** The store was emptied and reloaded after the naming fix above, since the
+re-converted objects carry fresh UIDs and would otherwise have accumulated alongside the superseded
+ones (see the note on non-overwriting import below). All 258 were staged to
 `gs://af-dev-storage/rcc-aid-all/{labelmap,binary}/` — two prefixes because the two flavours share a
 basename — and imported with
 
@@ -299,22 +299,25 @@ gcloud healthcare dicom-stores import gcs rcc-aid-pilot \
   --gcs-uri="gs://af-dev-storage/rcc-aid-all/**.dcm"
 ```
 
-which reported **256 succeeded, 2 failed**. Both failures were
-`instance already exists with same Study/Series/SOPInstance UID`, for the KICH pilot case in both
-flavours — already present and byte-identical, so nothing was lost. The staging prefix was deleted
-afterwards.
+which reported **258 succeeded, 0 failed** into the emptied store. The staging prefix was deleted
+afterwards, and the BigQuery metadata export refreshed with
+`gcloud healthcare dicom-stores export bq --overwrite-table` (258 rows).
 
-**Import does not overwrite, and that leaves stale objects.** The other four pilot objects
-(TCGA-DV-5567 and TCGA-DV-5568, both flavours) did *not* collide, because those two cases had been
-re-converted since the pilot import and dcmqi assigns fresh `SOPInstanceUID`s and
-`SeriesInstanceUID`s on every run. They therefore imported as new series *alongside* the superseded
-ones, leaving those two studies showing four SEG series each. The four stale series were removed with
-DICOMweb `DELETE`, after which the store matches the local set exactly.
+**Import does not overwrite, and that leaves stale objects.** An earlier import demonstrated this:
+four pilot objects had been re-converted since they were first loaded, and because dcmqi assigns
+fresh `SOPInstanceUID`s and `SeriesInstanceUID`s on every run they did not collide with their own
+predecessors — they imported as new series *alongside* the superseded ones, leaving those two studies
+showing four SEG series each. Only the two objects that had *not* been re-converted were rejected as
+duplicates. The stale series had to be removed with DICOMweb `DELETE`.
 
-Worth remembering when re-importing after any re-conversion: a duplicate is rejected only if the UIDs
-are identical, so re-running the pipeline and re-importing accumulates orphans rather than replacing
-anything. Diff the store against the local objects by `SOPInstanceUID` — an instance count alone would
-have read 262 as "everything imported".
+The rule to remember: a duplicate is rejected only if the UIDs are identical, so re-running the
+pipeline and re-importing accumulates orphans rather than replacing anything. Empty the store first,
+and verify by diffing it against the local objects on `SOPInstanceUID` — an instance count alone would
+have read that earlier 262 as "everything imported".
+
+One QIDO-RS gotcha when verifying: `SeriesNumber` is not in the default response. Without
+`includefield=00200011` every series reports it as empty, which makes a uniqueness check look like it
+found 106 collisions.
 
 **Viewer URLs.** Pattern:
 
