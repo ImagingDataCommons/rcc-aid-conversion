@@ -291,6 +291,13 @@ https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=<StudyInsta
 tcga_kich studies, 170 over 79 tcga_kirc, 52 over 17 tcga_kirp. The three pilot studies below are
 the ones worth opening first.
 
+`sql/viewer_urls.sql` builds the same URLs from the store's own metadata instead of from the case
+index, one row per segmentation series with its segment content, coded types, algorithm type and
+referenced CT. It runs against the BigQuery export of the store
+(`idc-sandbox-000.andrey_cohorts.rcc_aid_dicom_metadata`, refreshed with
+`gcloud healthcare dicom-stores export bq`), so it reports what a consumer of the objects would
+actually see. Note that the export is a snapshot -- re-run it after any re-conversion.
+
 Full URLs:
 
 - TCGA-DV-5567 — <https://viewers-sandbox-gha-testing.web.app/viewer?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.1357.4004.259839416696453949057995272918&gcp=projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot>
