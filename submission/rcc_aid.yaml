@@ -139,11 +139,22 @@ idc_internal:
     property TYPE codes are unchanged, so queries by segmented structure remain compatible."
   - "OPEN: zenodo.creators below lists only the conversion author and needs confirmation before any
     deposit is created."
+  - "DATASET DOI: every object carries 10.5281/zenodo.22284133 in
+    OtherClinicalTrialProtocolIDsSequence (0012,0023) issued by 'DOI', per IDC convention, together
+    with the Clinical Trial Subject module it belongs to -- sponsor TCGA, the source collection's
+    TCGA protocol, and the tissue source site IDC already publishes for each patient. Adding the
+    sequence alone would make the objects a Standard Extended SOP Class under dciodvfy. If the
+    reserved DOI changes before publication, re-run scripts/patch_clinical_trial.py and reload the
+    review store."
 zenodo:
   status: draft
   record_id: null
   concept_doi: null
-  latest_doi: null
+  # Reserved on the draft deposit; does not resolve until the record is published. This is the DOI
+  # the DICOM objects carry in OtherClinicalTrialProtocolIDsSequence (0012,0023) -- see
+  # docs/decisions.md ADR-013 in the conversion repository. Kept in step with
+  # rcc_aid.clinical_trial.DATASET_DOI, which is what actually gets written.
+  latest_doi: 10.5281/zenodo.22284133
   creators:
   - name: Fedorov, Andrey
     affiliation: Brigham and Women's Hospital Department of Radiology

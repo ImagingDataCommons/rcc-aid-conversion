@@ -179,6 +179,86 @@ reads to decide how far to trust a segmentation; getting it wrong misrepresents 
 
 ---
 
+## ADR-013 — The dataset DOI is carried in a complete Clinical Trial Subject module
+
+**Decision.** Every converted object records the DOI of the published dataset the way IDC does, as an
+item of `OtherClinicalTrialProtocolIDsSequence` (0012,0023) issued by `DOI` — **and** carries the rest
+of the Clinical Trial Subject module that attribute belongs to, populated with the values IDC already
+publishes for these patients:
+
+| Attribute | Type | Value |
+|---|---|---|
+| `ClinicalTrialSponsorName` (0012,0010) | 1 | `TCGA` |
+| `ClinicalTrialProtocolID` (0012,0020) | 1 | `TCGA-KIRC` / `TCGA-KIRP` / `TCGA-KICH` |
+| `ClinicalTrialProtocolName` (0012,0021) | 2 | `TCGA Kidney renal clear cell carcinoma`, … |
+| `ClinicalTrialSiteID` (0012,0030) | 2 | e.g. `TCGA-KM` |
+| `ClinicalTrialSiteName` (0012,0031) | 2 | e.g. `NCI Urologic Oncology Branch` |
+| `ClinicalTrialSubjectID` (0012,0040) | 1C | `PatientID` |
+| `OtherClinicalTrialProtocolIDsSequence` (0012,0023) | 3 | `10.5281/zenodo.22284133`, issuer `DOI` |
+
+`rcc_aid.clinical_trial` is the single definition; `rcc_aid.convert` applies it to every object it
+writes and `scripts/patch_clinical_trial.py` applies it to objects converted before it existed.
+
+**Why the DOI at all.** It is IDC convention, and it is what makes a segmentation self-describing: a
+consumer holding only the DICOM object can find the dataset it came from. Verified against
+`bigquery-public-data.idc_current.dicom_all` at IDC v24 — 27 distinct DOIs over 74,574 series, every
+one of them as a single sequence item with `IssuerOfClinicalTrialProtocolID = 'DOI'`.
+
+**Bare, not `doi:`-prefixed.** IDC carries both — 17 distinct DOIs prefixed (67,261 series), 10 bare
+(7,313). The bare form is what the recent additions use (`nlstseg`, `cgci_htmcp_lc`, `cddp_eagle_1`,
+`htan_tnp_sardana`), and the issuer already declares the string is a DOI.
+
+**Why the whole module, not just the sequence.** (0012,0023) is not free-standing: it lives in the
+Clinical Trial Subject module, whose Type 1 `ClinicalTrialSponsorName` and `ClinicalTrialProtocolID`
+and Type 2 site attributes must be present for the module to exist. Adding the sequence alone was
+tested and rejected — dciodvfy stops recognising the module and reports its contents as extras:
+
+```
+Warning - Attribute is not present in standard DICOM IOD - (0x0012,0x0023) SQ Other Clinical Trial …
+Warning - Dicom dataset contains attributes not present in standard DICOM IOD -
+          this is a Standard Extended SOP Class
+```
+
+Downgrading a plain Segmentation to a Standard Extended SOP Class in order to add one identifier is a
+bad trade. With the module complete, dciodvfy reports *exactly* the pre-existing baseline findings.
+This is also why the IDC objects carrying a DOI carry zero-length `ClinicalTrialSiteID` /
+`ClinicalTrialSiteName` when the site is unknown — Type 2 asks for the attribute, not a value.
+
+**Why these values.** They are not invented. IDC already publishes a sponsor, protocol and tissue
+source site for all 91 of these patients in `tcga_kirc` / `tcga_kirp` / `tcga_kich`, and
+`metadata/tcga_sites.csv` is a snapshot of exactly that (`sql/tcga_sites.sql`, 941 patients, one row
+each, all 91 of ours present). A consumer therefore sees the same trial identity on the segmentation
+as on the images it describes. The precedent is `tcga_sbu_til_maps`, IDC's other derived SEG dataset
+over TCGA, which carries its source collection's TCGA protocol plus its own DOI in (0012,0023).
+
+`rcc_aid.clinical_trial.attributes()` raises on an unknown patient rather than falling back to blanks:
+a silent fallback would emit the incomplete Type 1 module this decision exists to avoid.
+
+**Why patch rather than reconvert.** dcmqi mints fresh `SOPInstanceUID`s and `SeriesInstanceUID`s on
+every run (see the note on non-overwriting import in `docs/conversion-notes.md`), so reconverting to
+add seven attributes would replace all 258 objects with different-UID copies — invalidating the review
+store contents, `qc/viewer_urls.csv` and anything already reviewed. Patching in place preserves every
+UID, so the store is refreshed by exact replacement.
+
+**Why pydicom rather than `dcmodify`.** Both were tested and both round-trip correctly, including the
+Deflated LABELMAP objects, changing nothing but (0012,0023) in the dataset. `dcmodify` additionally
+rewrites File Meta `ImplementationClassUID` (0002,0012) and `ImplementationVersionName` (0002,0013) to
+whichever DCMTK is on the machine running it — here `1.2.276.0.7230010.3.0.3.7.0` / `OFFIS_DCMTK_370`
+became `…3.6.8` / `OFFIS_DCMTK_368`, misattributing objects dcmqi wrote and making the result depend on
+the operator's toolchain. It is also not shipped in the pinned dcmqi wheel, so it would be an
+unpinned system dependency inside the pipeline — the exact hazard ADR-009 and `dcmqi_bin()` guard
+against. pydicom is already a dependency, leaves File Meta untouched, and lets the patch prove what it
+did by diffing element by element.
+
+**Verification.** `scripts/patch_clinical_trial.py --audit` diffs every patched object against a
+pristine `.orig` copy on disk, not against the run log: 258/258 differ in the seven attributes above
+and nothing else, with `SOPInstanceUID`, `SeriesInstanceUID`, `PixelData` and transfer syntax
+preserved (`qc/clinical_trial_patch_audit.csv`). `rcc_aid.qc` independently re-derives the expected
+values from the patient and fails the case on any mismatch, so a future reconversion cannot quietly
+drop the module.
+
+---
+
 ## ADR-012 — Two non-conformant attributes in the source are repaired in reference copies
 
 **Decision.** `rcc_aid.sanitize_dicom` writes repaired copies of the affected reference instances into

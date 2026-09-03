@@ -19,8 +19,9 @@ Per case and flavour:
                 against, so BINARY is the oracle.
 
   headers       SegmentationType, SegmentNumber -> code mapping, algorithm type/name,
-                PixelPaddingValue on labelmap, patient/study identity, and that referenced instances
-                are a subset of the resolved reference list.
+                PixelPaddingValue on labelmap, patient/study identity, the Clinical Trial Subject
+                module carrying the published dataset DOI, and that referenced instances are a
+                subset of the resolved reference list.
 
 Output: qc/qc_report.csv
 
@@ -45,6 +46,9 @@ import SimpleITK as sitk
 
 from pydicom.uid import DeflatedExplicitVRLittleEndian as DEFLATED_EVRLE
 
+from .clinical_trial import DATASET_DOI, OWNED_ATTRS
+from .clinical_trial import attributes as ct_attributes
+from .clinical_trial import current as ct_current
 from .terminology import SEGMENTS
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -259,6 +263,22 @@ def check_headers(seg_path: Path, flavour: str, row: pd.Series,
         problems.append(f"PatientID {facts['hdr_PatientID']!r} != {row['idc_PatientID']!r}")
     if facts["hdr_StudyInstanceUID"] != str(row["idc_StudyInstanceUID"]):
         problems.append("StudyInstanceUID does not match the source study")
+
+    # Clinical Trial Subject module: the dataset DOI and the Type 1/2 attributes that have to
+    # accompany it. Checked as a whole rather than DOI-only -- a partial module is what turns the
+    # object into a Standard Extended SOP Class. See rcc_aid.clinical_trial and ADR-013.
+    got = ct_current(ds)
+    facts["hdr_dataset_doi"] = got["OtherClinicalTrialProtocolIDsSequence"] or ""
+    facts["hdr_clinical_trial_protocol_id"] = got["ClinicalTrialProtocolID"] or ""
+    facts["hdr_clinical_trial_site_id"] = got["ClinicalTrialSiteID"] or ""
+    try:
+        want = ct_attributes(facts["hdr_PatientID"], DATASET_DOI)
+    except KeyError as e:
+        problems.append(str(e))
+    else:
+        for name in OWNED_ATTRS:
+            if got[name] != want[name]:
+                problems.append(f"{name}={got[name]!r}, expected {want[name]!r}")
 
     refd: set[str] = set()
     ref_series: set[str] = set()

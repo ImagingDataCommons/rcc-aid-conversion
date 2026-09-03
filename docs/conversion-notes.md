@@ -139,6 +139,11 @@ BINARY equivalent** — 66 MB per case, roughly 8.5 GB across the dataset, for o
 deflated. LABELMAP's 8-bits-per-voxel-per-frame encoding only pays off once the uniform background is
 compressed away. This is the empirical basis for [ADR-010](decisions.md).
 
+The sizes in this section were measured before the DOI patch. Adding the Clinical Trial Subject module
+re-deflates the LABELMAP objects at pydicom's compression level rather than dcmqi's, which costs a
+median 3.1 % — the 251-slice case above is 133,952 bytes rather than 128,989, and its BINARY
+counterpart 6,751,954 rather than 6,751,756. The ratios, and the argument, are unaffected.
+
 ## Naming segmentations within a study
 
 Contrast phase alone does not identify a segmentation. 17 of the 106 studies annotate more than one
@@ -204,6 +209,65 @@ attribute is absent from **both** flavours, yet only LABELMAP is flagged. `Patie
 Reference — and ours is, referencing the source CT series with per-frame Plane Position. Combined with
 the deflate gap, this suggests `dciodvfy`'s Segmentation IOD model predates the LABELMAP supplement. We
 record it rather than treating it as a defect, and have not concluded which side is at fault.
+
+## Dataset DOI and the Clinical Trial Subject module
+
+Every object records the DOI of the published dataset the way IDC does, in
+`OtherClinicalTrialProtocolIDsSequence` (0012,0023) issued by `DOI`, together with the Clinical Trial
+Subject module that attribute belongs to. Rationale, alternatives tested and the evidence from IDC in
+[ADR-013](decisions.md).
+
+```
+(0012,0010) ClinicalTrialSponsorName               TCGA
+(0012,0020) ClinicalTrialProtocolID                TCGA-KICH
+(0012,0021) ClinicalTrialProtocolName              TCGA Kidney Chromophobe
+(0012,0023) OtherClinicalTrialProtocolIDsSequence
+              (0012,0020) ClinicalTrialProtocolID          10.5281/zenodo.22284133
+              (0012,0022) IssuerOfClinicalTrialProtocolID  DOI
+(0012,0030) ClinicalTrialSiteID                    TCGA-KM
+(0012,0031) ClinicalTrialSiteName                  NCI Urologic Oncology Branch
+(0012,0040) ClinicalTrialSubjectID                 TCGA-KM-8440
+```
+
+`rcc_aid.convert` now stamps this after every successful dcmqi run — dcmqi's metadata JSON reaches
+only `ClinicalTrialSeriesID`, `ClinicalTrialTimePointID` and `ClinicalTrialCoordinatingCenterName`,
+which are separate modules and unaffected. The existing 258 objects were brought up to date with
+`scripts/patch_clinical_trial.py` rather than reconverted, because dcmqi mints fresh UIDs on every run
+and that would have orphaned everything already in the review store.
+
+**The patch, and the evidence it is safe.** 258/258 patched; `--audit` then diffs each object against
+a pristine `.orig` copy on disk, exactly as `sanitize_dicom --audit` does, and writes
+`qc/clinical_trial_patch_audit.csv`:
+
+| | |
+|---|--:|
+| Objects patched (129 LABELMAP + 129 BINARY) | 258 |
+| Objects whose diff is the 7 owned attributes and nothing else | **258** |
+| `SOPInstanceUID` / `SeriesInstanceUID` preserved | 258 |
+| `PixelData` byte-identical | 258 |
+| Transfer syntax preserved (Deflated stays deflated) | 258 |
+| File Meta changed | **0** |
+
+`rcc_aid.qc` independently re-derives the expected values from the patient and fails the case on any
+mismatch, so a later reconversion cannot quietly drop the module.
+
+**Deflated objects grow slightly.** LABELMAP files are a median 3.1 % larger after patching
+(range 1.1–13.7 %; median 42 KB before): pydicom re-deflates the dataset at its own compression level
+rather than dcmqi's. BINARY, uncompressed, grows only by the attributes themselves — 178 to 216 bytes,
+0.01 %. The content is unchanged and losslessly recovered; `qc.py` round-trips all 258 objects
+exactly.
+
+**`dcmodify` was tested and rejected.** It handles the deflated objects correctly and changes nothing
+but (0012,0023) in the dataset, so it is a perfectly good one-off. But it also rewrites File Meta
+`ImplementationClassUID` and `ImplementationVersionName` to whichever DCMTK runs it — here
+`1.2.276.0.7230010.3.0.3.7.0` / `OFFIS_DCMTK_370` → `…3.6.8` / `OFFIS_DCMTK_368` — misattributing
+objects dcmqi wrote and making the output depend on the operator's machine. It is also absent from the
+pinned dcmqi wheel, so wiring it into the pipeline would reintroduce the unpinned-system-binary hazard
+[ADR-009](decisions.md) exists to prevent.
+
+**If the DOI changes before publication** — it is currently a reserved Zenodo identifier that does not
+resolve — re-run `scripts/patch_clinical_trial.py` and reload the store. The stamp is idempotent, and
+re-stamping replaces the sequence rather than appending, so no superseded DOI is left behind.
 
 ## Repairs applied to the reference DICOM
 
@@ -302,6 +366,29 @@ gcloud healthcare dicom-stores import gcs rcc-aid-pilot \
 which reported **258 succeeded, 0 failed** into the emptied store. The staging prefix was deleted
 afterwards, and the BigQuery metadata export refreshed with
 `gcloud healthcare dicom-stores export bq --overwrite-table` (258 rows).
+
+**Reloaded after the DOI patch.** `scripts/patch_clinical_trial.py` preserves every
+`SOPInstanceUID`, so the reload was an exact in-place replacement rather than a new generation of
+objects — the delete and the import covered the same 258 UIDs. Run with
+`scripts/reload_review_store.sh` (`--check` first to see the diff); it stages to
+`gs://af-dev-storage/rcc-aid-all/{labelmap,binary}/`, deletes every study, re-imports, and verifies.
+
+Verified by QIDO-RS afterwards, on `SOPInstanceUID` rather than by count, and on the DOI as the store
+actually serves it (`includefield=00120023`):
+
+| | |
+|---|--:|
+| Instances / series in the store | 258 |
+| Studies | 106 |
+| Local objects absent from the store | **0** |
+| Store objects not in the local set | **0** |
+| Instances serving `10.5281/zenodo.22284133`, issuer `DOI` | **258** |
+
+The BigQuery export was then refreshed with `gcloud healthcare dicom-stores export bq
+--overwrite-table` — 258 rows, all 258 carrying the DOI, 3 distinct `ClinicalTrialProtocolID` and 12
+`ClinicalTrialSiteID`. That export is a snapshot, not a view, and the pre-patch one had no
+`OtherClinicalTrialProtocolIDsSequence` column at all, so `sql/viewer_urls.sql` would have kept
+reading pre-DOI metadata until it was re-run.
 
 **Import does not overwrite, and that leaves stale objects.** An earlier import demonstrated this:
 four pilot objects had been re-converted since they were first loaded, and because dcmqi assigns

@@ -122,8 +122,51 @@ qc/                         # committed
   reference_resolution.csv  #   which instances each label map maps to, and geometry deltas
   conversion_report.csv     #   dcmqi outcome per case and flavour
   qc_report.csv             #   round-trip, geometry, label stats, header checks
+metadata/tcga_sites.csv     # committed; Clinical Trial Subject values as IDC publishes them
+sql/tcga_sites.sql          #   the query that regenerates it
 submission/rcc_aid.yaml     # idc-comet analysis_result metadata
 ```
+
+## Dataset DOI in the DICOM metadata
+
+Following IDC convention, every object records the DOI of the published dataset in
+`OtherClinicalTrialProtocolIDsSequence` (0012,0023), issued by `DOI`:
+
+```
+(0012,0010) ClinicalTrialSponsorName               TCGA
+(0012,0020) ClinicalTrialProtocolID                TCGA-KICH
+(0012,0021) ClinicalTrialProtocolName              TCGA Kidney Chromophobe
+(0012,0023) OtherClinicalTrialProtocolIDsSequence
+              (0012,0020) ClinicalTrialProtocolID          10.5281/zenodo.22284133
+              (0012,0022) IssuerOfClinicalTrialProtocolID  DOI
+(0012,0030) ClinicalTrialSiteID                    TCGA-KM
+(0012,0031) ClinicalTrialSiteName                  NCI Urologic Oncology Branch
+(0012,0040) ClinicalTrialSubjectID                 TCGA-KM-8440
+```
+
+The DOI cannot stand alone: (0012,0023) belongs to the Clinical Trial Subject module, and writing it
+without the module's Type 1 and Type 2 attributes turns the object into a Standard Extended SOP Class
+under dciodvfy. The accompanying values are the ones IDC already publishes for these patients in the
+source collections, snapshotted in `metadata/tcga_sites.csv` — nothing is invented
+([ADR-013](docs/decisions.md)).
+
+dcmqi cannot express any of this, so `rcc_aid.convert` stamps it with pydicom after each conversion.
+Objects converted before the stamp existed are brought up to date **without reconverting** — dcmqi
+would mint fresh UIDs and orphan everything already loaded into a DICOM store:
+
+```bash
+python scripts/patch_clinical_trial.py --check   # report what would change
+python scripts/patch_clinical_trial.py           # patch in place, keeping .orig backups
+python scripts/patch_clinical_trial.py --audit   # diff patched vs .orig, element by element
+python scripts/patch_clinical_trial.py --drop-backups
+```
+
+The review DICOM store must then be reloaded — a Cloud Healthcare import never overwrites, so changed
+objects that kept their UIDs are simply rejected. `scripts/reload_review_store.sh` does the full
+replace (stage → delete → import → verify on `SOPInstanceUID` and on the DOI the store serves), with
+`--check` to see the diff first. Because the patch preserves every UID this is an exact replacement,
+not a new generation of objects. Refresh the BigQuery export afterwards — it is a snapshot, and
+`sql/viewer_urls.sql` reads it.
 
 ## Provenance
 
@@ -136,6 +179,8 @@ Input files, verified by md5 against the Zenodo record:
 | `manifest.tcia` | `adfa32c16ef9287711cab0702083f3e7` |
 
 ## Attribution
+
+This conversion: `10.5281/zenodo.22284133` (reserved; the record is not yet published).
 
 Annotations: RCC-AID, [10.5281/zenodo.20719257](https://doi.org/10.5281/zenodo.20719257), CC BY 4.0 —
 de Boer, Häntze, Ziegelmayer, Russo, van Ginneken, Prokop, Bressem, Hering.

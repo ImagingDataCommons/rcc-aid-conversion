@@ -1,0 +1,942 @@
+PatientID,collection_id,ClinicalTrialSponsorName,ClinicalTrialProtocolID,ClinicalTrialProtocolName,ClinicalTrialSiteID,ClinicalTrialSiteName
+TCGA-2K-A9WE,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2K,Greenville Health System
+TCGA-2Z-A9J1,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9J2,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9J3,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9J5,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9J6,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9J7,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9J8,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9J9,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JD,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JE,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JG,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JI,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JJ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JK,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JL,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JM,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JN,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JO,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JP,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JQ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JR,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JS,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-2Z-A9JT,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-2Z,Moffitt Cancer Center
+TCGA-3Z-A93Z,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-3Z,Mary Bird Perkins Cancer Center - Our Lady of the Lake
+TCGA-4A-A93W,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-4A,Mary Bird Perkins Cancer Center - Our Lady of the Lake
+TCGA-4A-A93X,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-4A,Mary Bird Perkins Cancer Center - Our Lady of the Lake
+TCGA-4A-A93Y,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-4A,Mary Bird Perkins Cancer Center - Our Lady of the Lake
+TCGA-5P-A9JU,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9JV,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9JW,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9JY,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9JZ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9K0,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9K2,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9K3,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9K4,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9K6,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9K8,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9K9,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9KA,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9KC,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9KE,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9KF,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-5P-A9KH,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-5P,University Hospital Erlangen
+TCGA-6D-AA2E,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-6D,University of Oklahoma HSC
+TCGA-A3-3306,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3307,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3308,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3311,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3313,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3316,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3317,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3319,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3320,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3322,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3323,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3324,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3325,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3326,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3328,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3329,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3331,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3335,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3336,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3343,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3346,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3347,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3349,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3351,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3352,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3357,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3358,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3359,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3362,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3363,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3365,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3367,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3370,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3372,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3373,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3374,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3376,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3378,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3380,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3382,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3383,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3385,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-3387,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A6NI,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A6NJ,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A6NL,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A6NN,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A8CQ,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A8OU,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A8OV,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A8OW,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A3-A8OX,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-A3,International Genomics Consortium
+TCGA-A4-7286,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7287,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7288,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7583,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7584,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7585,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7732,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7734,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7828,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7915,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7996,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-7997,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8098,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8310,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8311,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8312,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8515,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8516,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8517,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8518,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-8630,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A48D,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A4ZT,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A57E,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A5DU,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A5XZ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A5Y0,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A5Y1,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A6HP,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A772,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-A4-A7UZ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-A4,International Genomics Consortium
+TCGA-AK-3425,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3426,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3427,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3428,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3429,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3430,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3431,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3433,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3434,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3436,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3440,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3443,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3444,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3445,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3447,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3450,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3451,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3453,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3454,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3455,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3456,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3458,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3460,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3461,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AK-3465,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AK,Fox Chase
+TCGA-AL-3466,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AL-3467,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AL-3468,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AL-3471,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AL-3472,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AL-3473,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AL-7173,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AL-A5DJ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AL,Fox Chase
+TCGA-AS-3777,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AS,St. Joseph's Medical Center-(MD)
+TCGA-AS-3778,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-AS,St. Joseph's Medical Center-(MD)
+TCGA-AT-A5NU,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-AT,St. Joseph's Medical Center-(MD)
+TCGA-B0-4688,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4690,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4691,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4693,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4694,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4696,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4697,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4698,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4699,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4700,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4701,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4703,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4706,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4707,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4710,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4712,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4713,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4714,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4718,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4810,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4811,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4813,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4814,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4815,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4816,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4817,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4818,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4819,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4821,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4822,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4823,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4824,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4827,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4828,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4833,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4834,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4836,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4837,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4838,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4839,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4841,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4842,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4843,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4844,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4845,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4846,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4847,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4848,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4849,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4852,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-4945,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5075,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5077,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5080,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5081,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5083,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5084,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5085,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5088,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5092,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5094,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5095,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5096,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5097,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5098,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5099,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5100,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5102,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5104,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5106,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5107,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5108,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5109,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5110,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5113,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5115,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5116,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5117,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5119,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5120,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5121,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5399,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5400,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5402,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5690,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5691,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5692,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5693,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5694,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5695,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5696,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5697,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5698,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5699,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5700,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5701,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5702,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5703,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5705,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5706,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5707,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5709,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5710,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5711,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5712,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5713,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B0-5812,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B0,University of Pittsburgh
+TCGA-B1-5398,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-7332,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-A47M,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-A47N,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-A47O,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-A654,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-A655,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-A656,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B1-A657,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B1,University of Pittsburgh
+TCGA-B2-3923,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-3924,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-4098,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-4099,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-4101,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-4102,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-5633,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-5635,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-5636,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-5639,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-5641,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B2-A4SR,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B2,Christiana Healthcare
+TCGA-B3-3925,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B3,Christiana Healthcare
+TCGA-B3-3926,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B3,Christiana Healthcare
+TCGA-B3-4103,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B3,Christiana Healthcare
+TCGA-B3-4104,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B3,Christiana Healthcare
+TCGA-B3-8121,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B3,Christiana Healthcare
+TCGA-B3-A6W5,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B3,Christiana Healthcare
+TCGA-B4-5377,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5378,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5832,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5834,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5835,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5836,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5838,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5843,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B4-5844,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B4,Cureline
+TCGA-B8-4143,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4146,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4148,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4151,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4153,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4154,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4619,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4620,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4621,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-4622,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5158,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5159,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5162,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5163,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5164,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5165,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5545,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5546,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5549,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5550,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5551,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5552,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-5553,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54D,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54E,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54F,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54G,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54H,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54I,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54J,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A54K,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A7U6,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B8-A8YJ,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-B8,UNC
+TCGA-B9-4113,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-4114,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-4115,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-4116,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-4117,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-4617,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-5155,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-5156,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-7268,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-A44B,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-A5W7,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-A5W8,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-A5W9,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-A69E,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-A8YH,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-B9-A8YI,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-B9,UNC
+TCGA-BP-4158,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4159,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4160,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4161,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4162,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4163,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4164,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4165,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4166,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4167,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4169,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4170,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4173,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4174,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4176,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4177,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4325,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4326,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4327,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4329,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4330,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4331,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4332,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4334,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4335,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4337,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4338,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4340,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4341,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4342,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4343,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4344,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4345,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4346,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4347,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4349,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4351,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4352,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4353,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4354,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4355,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4756,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4758,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4759,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4760,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4761,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4762,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4763,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4765,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4766,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4768,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4769,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4770,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4771,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4774,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4775,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4776,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4777,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4781,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4782,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4784,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4787,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4789,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4790,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4795,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4797,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4798,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4799,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4801,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4803,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4804,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4807,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4959,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4960,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4961,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4962,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4963,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4964,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4965,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4967,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4968,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4969,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4970,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4971,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4972,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4973,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4974,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4975,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4976,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4977,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4981,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4982,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4983,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4985,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4986,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4987,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4988,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4989,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4991,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4992,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4993,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4994,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4995,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4998,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-4999,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5000,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5001,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5004,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5006,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5007,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5008,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5009,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5010,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5168,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5169,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5170,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5173,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5174,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5175,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5176,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5177,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5178,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5180,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5181,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5182,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5183,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5184,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5185,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5186,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5187,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5189,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5190,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5191,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5192,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5194,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5195,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5196,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5198,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5199,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5200,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5201,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BP-5202,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-BP,MSKCC
+TCGA-BQ-5875,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5876,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5877,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5878,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5879,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5880,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5881,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5882,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5883,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5884,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5885,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5886,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5887,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5888,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5889,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5890,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5891,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5892,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5893,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-5894,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7044,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7045,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7046,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7048,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7049,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7050,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7051,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7053,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7055,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7056,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7058,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7059,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7060,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7061,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-BQ-7062,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-BQ,MSKCC
+TCGA-CJ-4634,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4635,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4636,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4637,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4638,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4639,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4640,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4641,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4642,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4643,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4644,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4868,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4869,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4870,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4871,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4872,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4873,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4874,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4875,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4876,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4878,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4881,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4882,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4884,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4885,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4886,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4887,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4888,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4889,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4890,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4891,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4892,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4893,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4894,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4895,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4897,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4899,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4900,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4901,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4902,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4903,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4904,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4905,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4907,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4908,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4912,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4913,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4916,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4918,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4920,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-4923,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5671,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5672,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5675,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5676,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5677,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5678,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5679,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5680,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5681,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5682,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5683,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5684,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5686,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-5689,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-6027,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-6028,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-6030,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-6031,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-6032,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CJ-6033,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CJ,MD Anderson Cancer Center
+TCGA-CW-5580,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5581,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5583,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5584,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5585,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5587,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5588,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5589,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5590,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-5591,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-6087,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-6088,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-6090,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-6093,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-6096,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CW-6097,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CW,Mayo Clinic - Rochester
+TCGA-CZ-4853,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4854,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4856,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4857,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4858,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4859,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4860,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4861,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4862,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4863,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4864,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4865,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-4866,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5451,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5452,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5453,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5454,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5455,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5456,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5457,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5458,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5459,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5460,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5461,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5462,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5463,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5464,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5465,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5466,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5467,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5468,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5469,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5470,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5982,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5984,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5985,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5986,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5987,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5988,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-CZ-5989,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-CZ,Harvard
+TCGA-DV-5565,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5566,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5567,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5568,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5569,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5573,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5574,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5575,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-5576,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-A4VX,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-A4VZ,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DV-A4W0,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-DV,NCI Urologic Oncology Branch
+TCGA-DW-5560,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-5561,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7834,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7836,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7837,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7838,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7839,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7840,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7841,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7842,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DW-7963,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DW,NCI Urologic Oncology Branch
+TCGA-DZ-6131,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DZ,Mayo Clinic - Rochester
+TCGA-DZ-6132,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DZ,Mayo Clinic - Rochester
+TCGA-DZ-6133,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DZ,Mayo Clinic - Rochester
+TCGA-DZ-6134,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DZ,Mayo Clinic - Rochester
+TCGA-DZ-6135,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-DZ,Mayo Clinic - Rochester
+TCGA-EU-5904,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-EU,CHI-Penrose Colorado
+TCGA-EU-5905,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-EU,CHI-Penrose Colorado
+TCGA-EU-5906,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-EU,CHI-Penrose Colorado
+TCGA-EU-5907,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-EU,CHI-Penrose Colorado
+TCGA-EV-5901,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-EV,CHI-Penrose Colorado
+TCGA-EV-5902,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-EV,CHI-Penrose Colorado
+TCGA-EV-5903,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-EV,CHI-Penrose Colorado
+TCGA-F9-A4JJ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-F9,Asterand
+TCGA-F9-A7Q0,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-F9,Asterand
+TCGA-F9-A7VF,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-F9,Asterand
+TCGA-F9-A8NY,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-F9,Asterand
+TCGA-F9-A97G,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-F9,Asterand
+TCGA-G6-A5PC,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-G6,Roswell Park
+TCGA-G6-A8L6,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-G6,Roswell Park
+TCGA-G6-A8L7,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-G6,Roswell Park
+TCGA-G6-A8L8,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-G6,Roswell Park
+TCGA-G7-6789,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-6790,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-6792,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-6793,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-6795,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-6796,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-6797,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-7501,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-7502,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-A4TM,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-A8LB,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-A8LC,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-A8LD,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-G7-A8LE,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-G7,Roswell Park
+TCGA-GK-A6C7,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-GK,ABS - IUPUI
+TCGA-GL-6846,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-7773,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-7966,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-8500,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-A4EM,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-A59R,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-A59T,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-A9DC,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-A9DD,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-GL-A9DE,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-GL,ABS - IUPUI
+TCGA-HE-7128,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-7129,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-7130,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-A5NF,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-A5NH,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-A5NI,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-A5NJ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-A5NK,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-HE-A5NL,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-HE,Ontario Institute for Cancer Research (OICR)
+TCGA-IA-A40U,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IA,Cleveland Clinic
+TCGA-IA-A40X,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IA,Cleveland Clinic
+TCGA-IA-A40Y,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IA,Cleveland Clinic
+TCGA-IA-A83S,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IA,Cleveland Clinic
+TCGA-IA-A83T,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IA,Cleveland Clinic
+TCGA-IA-A83V,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IA,Cleveland Clinic
+TCGA-IA-A83W,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IA,Cleveland Clinic
+TCGA-IZ-8195,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IZ,ABS - Lahey Clinic
+TCGA-IZ-8196,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IZ,ABS - Lahey Clinic
+TCGA-IZ-A6M8,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IZ,ABS - Lahey Clinic
+TCGA-IZ-A6M9,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-IZ,ABS - Lahey Clinic
+TCGA-J7-6720,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-J7,ILSBio
+TCGA-J7-8537,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-J7,ILSBio
+TCGA-J7-A8I2,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-J7,ILSBio
+TCGA-KL-8323,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8324,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8325,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8326,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8327,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8328,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8329,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8330,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8331,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8332,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8333,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8334,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8335,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8336,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8337,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8338,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8339,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8340,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8341,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8342,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8343,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8344,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8345,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KL-8346,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KL,MSKCC
+TCGA-KM-8438,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8439,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8440,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8441,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8442,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8443,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8476,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8477,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-8639,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7Q6,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7Q7,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7Q8,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7Q9,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QA,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QB,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QC,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QD,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QE,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QG,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QH,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QI,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QJ,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QK,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KM-A7QL,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KM,NCI Urologic Oncology Branch
+TCGA-KN-8418,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8419,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8421,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8422,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8423,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8424,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8425,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8426,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8427,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8428,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8429,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8430,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8431,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8432,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8433,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8434,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8435,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8436,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KN-8437,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KN,Harvard
+TCGA-KO-8403,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8404,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8405,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8406,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8407,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8408,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8409,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8410,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8411,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8413,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8414,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8415,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8416,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KO-8417,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-KO,MD Anderson Cancer Center
+TCGA-KV-A6GD,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-KV,Hartford
+TCGA-KV-A6GE,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-KV,Hartford
+TCGA-KV-A74V,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-KV,Hartford
+TCGA-MH-A55W,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A55Z,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A560,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A561,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A562,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A854,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A855,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A856,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MH-A857,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-MH,BLN - Baylor
+TCGA-MM-A563,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-MM,BLN - Baylor
+TCGA-MM-A564,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-MM,BLN - Baylor
+TCGA-MM-A84U,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-MM,BLN - Baylor
+TCGA-MW-A4EC,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-MW,University of Miami
+TCGA-NP-A5B3,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-NP,International Genomics Consortium
+TCGA-NP-A5GY,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-NP,International Genomics Consortium
+TCGA-NP-A5GZ,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-NP,International Genomics Consortium
+TCGA-NP-A5H1,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-NP,International Genomics Consortium
+TCGA-NP-A5H5,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-NP,International Genomics Consortium
+TCGA-NP-A5H6,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-NP,International Genomics Consortium
+TCGA-NP-A5H7,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-NP,International Genomics Consortium
+TCGA-O9-A75Z,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-O9,Saint Mary's Health Care
+TCGA-P4-A5E6,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-A5E7,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-A5E8,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-A5EA,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-A5EB,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-A5ED,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-AAVK,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-AAVL,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-AAVM,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-P4-AAVO,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-P4,MD Anderson Cancer Center
+TCGA-PJ-A5Z8,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-PJ,Gundersen Lutheran
+TCGA-PJ-A5Z9,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-PJ,Gundersen Lutheran
+TCGA-PJ-A8JU,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-PJ,Gundersen Lutheran
+TCGA-Q2-A5QZ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Q2,University of Oklahoma HSC
+TCGA-SX-A71R,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A71S,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A71U,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A71V,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A71W,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SL,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SM,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SN,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SO,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SP,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SQ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SR,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SS,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-SX-A7SU,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-SX,Mayo Clinic Arizona
+TCGA-T7-A92I,tcga_kirc,TCGA,TCGA-KIRC,TCGA Kidney renal clear cell carcinoma,TCGA-T7,Molecular Response
+TCGA-UN-AAZ9,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UN,Boston Medical Center
+TCGA-UW-A72H,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72I,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72J,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72K,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72L,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72M,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72N,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72O,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72P,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72Q,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72R,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72S,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A72T,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GC,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GG,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GI,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GJ,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GK,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GL,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GN,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GP,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GR,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GU,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GX,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UW-A7GY,tcga_kich,TCGA,TCGA-KICH,TCGA Kidney Chromophobe,TCGA-UW,University of North Carolina
+TCGA-UZ-A9PJ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PK,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PL,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PM,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PN,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PO,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PP,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PQ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PR,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PS,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PU,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PV,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PX,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9PZ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9Q0,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-UZ-A9Q1,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-UZ,University of California San Francisco
+TCGA-V9-A7HT,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-V9,Medical College of Georgia
+TCGA-WN-A9G9,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-WN,University of Kansas
+TCGA-WN-AB4C,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-WN,University of Kansas
+TCGA-Y8-A894,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A895,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A896,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A897,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A898,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A8RY,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A8RZ,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A8S0,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health
+TCGA-Y8-A8S1,tcga_kirp,TCGA,TCGA-KIRP,TCGA Kidney renal papillary cell carcinoma,TCGA-Y8,Spectrum Health

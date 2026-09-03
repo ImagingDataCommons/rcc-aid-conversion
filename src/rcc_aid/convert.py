@@ -8,6 +8,11 @@ Two flavours per case (docs/decisions.md ADR-001):
 Reference instances come from data/refs/<case_id>.txt, produced by rcc_aid.resolve_references, and are
 passed via --inputDICOMList. dcmqi's own --referencesGeometryCheck stays enabled.
 
+Every object dcmqi writes is then stamped with the published dataset's DOI and the Clinical Trial
+Subject module it belongs to (rcc_aid.clinical_trial). dcmqi cannot express those attributes, so this
+is a post-write step rather than metadata JSON. Objects converted before the stamp existed are
+brought up to date by scripts/patch_clinical_trial.py without reconverting.
+
     uv run python -m rcc_aid.convert
     uv run python -m rcc_aid.convert --cases <case_id> ... --flavours labelmap
 """
@@ -24,6 +29,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import pandas as pd
+
+from .clinical_trial import DATASET_DOI, stamp_file, stamped_doi
 
 # dcmqi is a subprocess, so threads are the right pool here. Physical cores, not logical: each dcmqi
 # run is CPU- and memory-bandwidth-bound, and hyperthreads buy little.
@@ -133,6 +140,18 @@ def convert_one(case_id: str, flavour: str) -> dict:
     )
 
     ok = proc.returncode == 0 and out.exists() and out.stat().st_size > 0
+    detail = "" if ok else (proc.stderr.strip().splitlines() or ["(no stderr)"])[-1][:300]
+
+    # The DOI stamp is part of producing the object, not a later embellishment: an object that
+    # converted but could not be stamped is not one we would publish, so treat it as a failure
+    # rather than quietly emitting a SEG with no dataset DOI.
+    if ok:
+        try:
+            stamp_file(out)
+        except Exception as e:  # noqa: BLE001 -- reported, not swallowed
+            ok = False
+            detail = f"DOI stamp failed: {type(e).__name__}: {e}"[:300]
+
     return {
         "case_id": case_id,
         "flavour": flavour,
@@ -140,12 +159,14 @@ def convert_one(case_id: str, flavour: str) -> dict:
         "returncode": proc.returncode,
         "n_reference_instances": len(dicom_list),
         "output": str(out.relative_to(ROOT)) if ok else "",
+        # Measured after stamping, so the report matches what is on disk.
         "output_bytes": out.stat().st_size if ok else 0,
         "compress": COMPRESS[flavour],
         "skip_empty": SKIP_EMPTY[flavour],
+        "dataset_doi": DATASET_DOI if ok else "",
         "seconds": round(elapsed, 2),
         "log": str(log.relative_to(ROOT)),
-        "detail": "" if ok else (proc.stderr.strip().splitlines() or ["(no stderr)"])[-1][:300],
+        "detail": detail,
     }
 
 
@@ -196,6 +217,10 @@ def main() -> int:
                     "n_reference_instances": n_ref,
                     "output": str(out.relative_to(ROOT)), "output_bytes": out.stat().st_size,
                     "compress": COMPRESS[f], "skip_empty": SKIP_EMPTY[f],
+                    # Read from the object rather than assumed: a resumed run must not report a DOI
+                    # on an output that predates the stamp. Empty here means
+                    # scripts/patch_clinical_trial.py has not been run over it yet.
+                    "dataset_doi": stamped_doi(out),
                     "seconds": float("nan"), "log": "",
                     "detail": "pre-existing output, not reconverted this run",
                 })
