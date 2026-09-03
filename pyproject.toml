@@ -2,6 +2,7 @@
 name = "rcc-aid-conversion"
 version = "0.1.0"
 description = "Convert RCC-AID NIfTI kidney/tumor/cyst annotations to DICOM LABELMAP Segmentation"
+license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = [
     # Pinned: labelmap semantics changed within the 1.5.x line. See docs/decisions.md ADR-009.
