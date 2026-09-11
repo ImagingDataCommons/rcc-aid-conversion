@@ -134,6 +134,10 @@ idc_internal:
   converted_data_location: gs://rcc-aid
   source_data_location: gs://rcc-aid-src
   review_dicom_store: projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot
+  # The BigQuery export of that review store, which sql/viewer_urls.sql reads. It is a snapshot,
+  # not a view -- refreshed by scripts/reload_review_store.sh after any reconversion. Points at the
+  # development sandbox until IDC provisions the v25 review resources.
+  bigquery_metadata_table: idc-sandbox-000.andrey_cohorts.rcc_aid_dicom_metadata
   notes:
   - "Conversion pipeline, decision log and QC reports: https://github.com/fedorov/rcc-aid-conversion"
   - "STAGED FOR v25: the 129 instances are at
