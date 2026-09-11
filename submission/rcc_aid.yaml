@@ -1,6 +1,6 @@
 analysis_result_id: rcc_aid
 analysis_result_name: "RCC-AID"
-title: "RCC-AID: DICOM-converted kidney, mass and cyst annotations for the TCGA renal cell carcinoma collections"
+analysis_result_title: "RCC-AID: DICOM-converted kidney, mass and cyst annotations for the TCGA renal cell carcinoma collections"
 cancer_types:
 - Clear Cell Renal Cell Carcinoma
 - Papillary Renal Cell Carcinoma
@@ -11,8 +11,25 @@ collections:
 - tcga_kich
 - tcga_kirc
 - tcga_kirp
-source_doi: 10.5281/zenodo.20719257
-source_url: https://doi.org/10.5281/zenodo.20719257
+# The DOI of this dataset -- the DICOM conversion -- not of the RCC-AID annotations it derives from,
+# which are in references.related_datasets. This is the value the objects themselves carry in
+# OtherClinicalTrialProtocolIDsSequence (ADR-013) and the value every row of the submitter manifest
+# repeats, matching how nlstseg and tcga_sbu_til_maps are recorded in IDC.
+source_doi: 10.5281/zenodo.22284133
+# source_url is omitted: it defaults to https://doi.org/<source_doi>, which is where this record
+# will resolve once the deposit is published. versioned_source_doi is likewise omitted until the
+# deposit exists -- zenodo_import.py --update fills it in from the draft's own record id.
+provenance:
+  # An analysis result derived from annotations the RCC-AID project published on Zenodo, not
+  # obtained through TCIA: Community is the vocabulary's catch-all for a contributor it does not
+  # name. NOT_APPLICABLE for de-identification is what every analysis result in the corpus carries
+  # -- the segmentations describe imaging that was already de-identified upstream.
+  data_contributor: IDC
+  source_data_provider: Community
+  deidentification_party: NOT_APPLICABLE
+  dicom_conversion_by: IDC
+submitter_manifest: gs://rcc-aid/v25/rcc_aid-v25.csv
+submitter_manifest_hash: 864ab70775b05ca5565f4e0a00a1f318
 license:
   short_name: CC BY 4.0
   long_name: Creative Commons Attribution 4.0 International License
@@ -79,7 +96,6 @@ description: |-
   and the annotations apply to one acquisition within such a series. Details of the conversion process,
   including the terminology decisions and per-case quality control, are provided in this GitHub
   repository: [https://github.com/fedorov/rcc-aid-conversion](https://github.com/fedorov/rcc-aid-conversion).
-description_format: markdown
 citation: |-
   de Boer, S., Häntze, H., Ziegelmayer, S., Russo, T., van Ginneken, B., Prokop, M., Bressem, K., &
   Hering, A. (2026). <i>RCC-AID: Renal Cell Carcinoma AI Dataset for Medical Imaging Research</i>
@@ -111,14 +127,23 @@ references:
     title: "dcmterms: DICOM PS3.16 coded terminology browser, used to source the segment codes"
   - url: https://github.com/DIAGNijmegen/oncology-RCC-AID-codebase
     title: "RCC-AID codebase (upstream DICOM to NIfTI conversion)"
-updated: '2026-08-21'
-idc_versions: null
+updated: '2026-09-11'
+idc_versions:
+- v25
 idc_internal:
-  converted_data_location: null
-  source_data_location: https://zenodo.org/records/20719257
+  converted_data_location: gs://rcc-aid
+  source_data_location: gs://rcc-aid-src
   review_dicom_store: projects/idc-sandbox-000/locations/us-central1/datasets/fedorov-dev-healthcare/dicomStores/rcc-aid-pilot
   notes:
   - "Conversion pipeline, decision log and QC reports: https://github.com/fedorov/rcc-aid-conversion"
+  - "STAGED FOR v25: the 129 instances are at
+    gs://rcc-aid/v25/<collection_id>/<PatientID>/<StudyInstanceUID>/<SeriesInstanceUID>/<SOPInstanceUID>.dcm
+    (18 tcga_kich, 85 tcga_kirc, 26 tcga_kirp) beside the submitter manifest declared above. The
+    source data is at gs://rcc-aid-src/v25/: labels/ holds the 129 published NIfTI annotations that
+    the manifest's source_file_url column points at, labels_norm/ the NRRD that dcmqi actually read
+    after the ADR-011 repair, and labels.zip / metadata.csv / manifest.tcia the Zenodo record's own
+    files, md5-verified against it. Regenerate the manifest with
+    scripts/make_submitter_manifest.py in the conversion repository."
   - "129 label maps converted, one DICOM LABELMAP SEG per annotated scan. All 129 source CT series
     are present in IDC (16055 instances, 8.27 GB) and were verified against the record's manifest.tcia."
   - "SEGMENTATION TYPE: this is LABELMAP, which as of IDC v24 has no precedent in the archive
@@ -143,18 +168,17 @@ idc_internal:
     OtherClinicalTrialProtocolIDsSequence (0012,0023) issued by 'DOI', per IDC convention, together
     with the Clinical Trial Subject module it belongs to -- sponsor TCGA, the source collection's
     TCGA protocol, and the tissue source site IDC already publishes for each patient. Adding the
-    sequence alone would make the objects a Standard Extended SOP Class under dciodvfy. If the
-    reserved DOI changes before publication, re-run scripts/patch_clinical_trial.py and reload the
-    review store."
+    sequence alone would make the objects a Standard Extended SOP Class under dciodvfy. The same
+    value is this component's source_doi above and the source_doi column of every submitter manifest
+    row. If the reserved DOI changes before publication -- in particular if it turns out to be the
+    draft's version DOI rather than its concept DOI, which is what source_doi must carry -- re-run
+    scripts/patch_clinical_trial.py, regenerate the manifest, reload the review store, and re-stage
+    gs://rcc-aid/v25/."
 zenodo:
   status: draft
+  # No DOIs live here: the reserved DOI is the component's source_doi above, and the deposit's own
+  # record id becomes versioned_source_doi once the draft is created.
   record_id: null
-  concept_doi: null
-  # Reserved on the draft deposit; does not resolve until the record is published. This is the DOI
-  # the DICOM objects carry in OtherClinicalTrialProtocolIDsSequence (0012,0023) -- see
-  # docs/decisions.md ADR-013 in the conversion repository. Kept in step with
-  # rcc_aid.clinical_trial.DATASET_DOI, which is what actually gets written.
-  latest_doi: 10.5281/zenodo.22284133
   creators:
   - name: Fedorov, Andrey
     affiliation: Brigham and Women's Hospital Department of Radiology

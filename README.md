@@ -125,6 +125,45 @@ qc/                         # committed
 metadata/tcga_sites.csv     # committed; Clinical Trial Subject values as IDC publishes them
 sql/tcga_sites.sql          #   the query that regenerates it
 submission/rcc_aid.yaml     # idc-comet analysis_result metadata
+submission/rcc_aid-v25.csv  #   submitter instance manifest, as staged for IDC v25
+```
+
+## Staging for IDC
+
+Two buckets, each organized under a per-release folder so a later release adds a sibling rather than
+disturbing what ETL has already ingested:
+
+```
+gs://rcc-aid/v25/rcc_aid-v25.csv                       submitter instance manifest
+gs://rcc-aid/v25/<collection_id>/<PatientID>/<StudyInstanceUID>/
+                 <SeriesInstanceUID>/<SOPInstanceUID>.dcm            129 LABELMAP SEG
+gs://rcc-aid-src/v25/labels/<case_id>_seg.nii.gz       the 129 published annotations
+gs://rcc-aid-src/v25/labels_norm/<case_id>_seg.nrrd    what dcmqi read, after the ADR-011 repair
+gs://rcc-aid-src/v25/{labels.zip,metadata.csv,manifest.tcia}   the Zenodo record's own files
+```
+
+`collection_id` leads the segmentation hierarchy because this analysis result spans three
+collections (18 `tcga_kich`, 85 `tcga_kirc`, 26 `tcga_kirp`), and it is what the manifest's
+`collection_id` column names — the collection *analyzed*, per idc-comet's `docs/submitter-manifest.md`.
+The manifest sits at the top of the folder it describes, which is what lets every `relative_gcs_url`
+be a `./` path below it.
+
+```bash
+python scripts/make_submitter_manifest.py              # -> submission/rcc_aid-v25.csv
+python scripts/make_submitter_manifest.py --stage <d>  # + the upload tree, for `gcloud storage rsync`
+```
+
+The manifest's `source_doi` is read from `rcc_aid.clinical_trial.DATASET_DOI` rather than restated,
+and every object is checked to carry that same DOI in `OtherClinicalTrialProtocolIDsSequence` before
+it becomes a row — a manifest row and the instance it points at must identify the dataset the same
+way. `source_file_url` points at the published NIfTI in `gs://rcc-aid-src`, not at the normalized
+NRRD: the NIfTI is what RCC-AID published, and the repair between them is what ADR-011 documents.
+
+`submission/rcc_aid.yaml` declares the manifest's URL and its MD5 (`submitter_manifest` /
+`submitter_manifest_hash`). Verify the declaration from a clone of `idc-comet`:
+
+```bash
+uv run python scripts/validate_submitter_manifest.py collections/analysis/rcc_aid.yaml --check-gcs
 ```
 
 ## Dataset DOI in the DICOM metadata
